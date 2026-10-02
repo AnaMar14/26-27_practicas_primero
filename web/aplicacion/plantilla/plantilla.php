@@ -66,6 +66,8 @@ function inicioCuerpo($cabecera)
             <div id="barraMenu">
                 <ul>
                     <li><a href="/index.php">Inicio</a></li>
+                    <li><a href="/aplicacion/pruebas/basicas.php">Ejemplos Básicos</a></li>
+<!--Lo que cambies en la plantilla se cambia en todas las páginas-->
                  </ul> 
                 
             </div>
@@ -83,7 +85,7 @@ function finCuerpo()
             <footer>
                 <hr width="90%"  />  
                 <div>
-                    &copy; Copyright  by Profesor
+                    &copy; Copyright  by Vicente
                 </div>
             </footer>
         </div>

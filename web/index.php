@@ -4,7 +4,7 @@ include_once(dirname(__FILE__) . "/cabecera.php");
 
 
 //dibuja la plantilla de la vista
-inicioCabecera("APLICACION PRIMER TRIMESTRE");
+inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
 inicioCuerpo("2DAW APLICACION");
@@ -14,7 +14,11 @@ finCuerpo();
 
 //vista
 function cabecera() 
-{}
+{
+    ?>
+<!--esto va en el head-->
+<?php
+}
 
 //vista
 function cuerpo()
@@ -24,3 +28,4 @@ function cuerpo()
    <a href="./aplicacion/pruebas/index.php">Acceso a pruebas</a>
 <?php
 }
+//al final se ponen las funciones
