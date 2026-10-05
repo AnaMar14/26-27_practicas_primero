@@ -67,7 +67,8 @@ function inicioCuerpo($cabecera)
                 <ul>
                     <li><a href="/index.php">Inicio</a></li>
                     <li><a href="/aplicacion/pruebas/basicas.php">Ejemplos Básicos</a></li>
-<!--Lo que cambies en la plantilla se cambia en todas las páginas-->
+                    <li><a href="/aplicacion/relacion1/index.php">Práctica 1</a></li>
+                    <!--Lo que cambies en la plantilla se cambia en todas las páginas-->
                  </ul> 
                 
             </div>
