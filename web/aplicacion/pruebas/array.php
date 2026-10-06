@@ -1,11 +1,14 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+
+const NUME1=56;
+define("NUME",25);
 //controlador
 //dibuja la plantilla de la vista
 inicioCabecera("APLICACION PRIMER TRIMESTRE");
 cabecera();
 finCabecera();
-inicioCuerpo("2DAW APLICACION");
+inicioCuerpo("array");
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -17,12 +20,23 @@ function cuerpo()
 {
 ?>
     <br><br>
-    Elemento de pruebas
-    <br><br>
-    <a href="basicas.php">Funcionamiento básico</a><br>
-   <a href="paspar.php">Acceso a pruebas</a><br>
-   <a href="array.php">Array</a><br>
+    <?php 
+    $myArray[3]="valor";
+    $myArray[7]=1234;
+    $myArray["Nueva"]=24;
+    $myArray[]="otro";
    
 
+   
+   
+    $total=0;
+    $total=1;
+    foreach($myArray as $i=>$valor){
+        $total=$myArray[$i];
+        $total=
+    }
+
+    ?>
+  
 <?php
 }
