@@ -24,6 +24,10 @@ body {
     font-style: italic;
 }
 
+#barraUbicacion{
+    background-color: gainsboro;
+    color:brown;
+}
 .boton{
     background-color: blue;
     color:white;

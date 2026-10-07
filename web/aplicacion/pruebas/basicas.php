@@ -4,11 +4,28 @@ include_once(dirname(__FILE__) . "/../../cabecera.php");
 const NUME1=56;
 define("NUME",25);
 //controlador
+
+$barra=[
+    [   "TEXTO"=> "Inicio", 
+        "ENLACE"=> "/index.php",
+      
+    ],
+    [
+        "TEXTO"=> "pruebas",
+        "ENLACE"=> "/aplicaciones/pruebas/index.php",
+    ],
+    [
+        "TEXTO"=> "eje.basicos",
+        
+    ],
+  
+];
+
 //dibuja la plantilla de la vista
 inicioCabecera("APLICACION PRIMER TRIMESTRE");
 cabecera();
 finCabecera();
-inicioCuerpo("pruebas basicas");
+inicioCuerpo("pruebas basicas",$barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
