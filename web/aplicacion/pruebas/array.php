@@ -21,21 +21,30 @@ function cuerpo()
 ?>
     <br><br>
     <?php 
-    $myArray[3]="valor";
-    $myArray[7]=1234;
-    $myArray["Nueva"]=24;
-    $myArray[]="otro";
-   
+   $miArray[3]="valor";
+    $miArray[7]=1234;
+   //miArray['nueva']=54;
+    $miArray[]=54;
 
-   
-   
-    $total=0;
-    $total=1;
-    foreach($myArray as $i=>$valor){
-        $total=$myArray[$i];
-        $total=
+
+
+    $total=$miArray[6];
+
+
+    $final=count($miArray);
+    for($i=0;$i<($final);$i++){
+        if (isset($miArray[$i]))
+    $total=$miArray[$i]+$total;
+        else
+        $total++;
     }
 
+    $miArray["nueva"]=54;
+    $total1=0;
+    foreach($miArray as $i=>$valor){
+        $total=$miArray[$i];
+        $total1+=$valor;
+    }
     ?>
   
 <?php
