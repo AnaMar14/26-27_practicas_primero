@@ -2,21 +2,24 @@
 include_once(dirname(__FILE__) . "/cabecera.php");
 //controlador
 $barra=[
-    [   "TEXTO"=> "Inicio", 
-        "ENLACE"=> "/index.php",
-      
-    ],
-    [
-        "TEXTO"=> "pruebas"
-    ],
-  
+     [
+       "TEXTO"=> "inicio",
+       "ENLACE" =>"/index.php",
+       "ADICIONAL"=>">>"],
+     [ 
+       "TEXTO"=> "otro"   
+     ],  
+     [ 
+       "TEXTO"=> "index",
+       "ADICIONAL"=> "&copy;&copy;"   
+     ]
 ];
 
 //dibuja la plantilla de la vista
-inicioCabecera("Mi aplicación");
+inicioCabecera("Mi aplicacion");
 cabecera();
 finCabecera();
-inicioCuerpo("2DAW APLICACION",$barra);
+inicioCuerpo("2DAW APLICACION INDEX",$barra);
 cuerpo();  //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -25,8 +28,10 @@ finCuerpo();
 function cabecera() 
 {
     ?>
-<!--esto va en el head-->
-<?php
+    <!-- esto va en el head -->
+     <?php   
+
+
 }
 
 //vista
@@ -37,4 +42,3 @@ function cuerpo()
    <a href="./aplicacion/pruebas/index.php">Acceso a pruebas</a>
 <?php
 }
-//al final se ponen las funciones
