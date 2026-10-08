@@ -1,7 +1,9 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-
+$numTiradas=1000;
+$tiradas=0;
+$cantidades= array();
 //datos basicos
 
 
@@ -33,47 +35,52 @@ function cuerpo()
     <br><br>
    
 <?php
-$numTiradas=1000;
-$num1=0;
-$num2=0;
-$num3=0;
-$num4=0;
-$num5=0;
-$num6=0;
-$cont=1;
+
     for( $i=1; $i<=6; $i++){
-        echo "Lanzamiento $cont del dado: " . mt_rand(1,6) . "<br>";
-        $cont++;
+        echo "Lanzamiento $i del dado: " . mt_rand(1,6) . "<br>";
+       
     }
     echo"<br>";
     echo"<br>";
     echo "Lanzado el dado $numTiradas veces <br>";
 
-    for($i=1;$i<=$numTiradas;$i++){
-        $dado= mt_rand(1,6);
-        switch($dado){
+  
+    while($tiradas<$numTiradas){
+         $dado= mt_rand(1,6);
+         switch($dado){
             case 1: 
-                $num1++;
+                $cantidades[0]++;
                 break;
             case 2: 
-                $num2++;
+                $cantidades[1]++;
                 break;
             case 3: 
-                $num3++;
+                $cantidades[2]++;
                 break;
             case 4:
-                $num4++; 
+                $cantidades[3]++;
                 break;
             case 5: 
-                $num5++;
+                $cantidades[4]++;
                 break;
             case 6: 
-                $num6++;
+                $cantidades[5]++;
                 break;
         }
+        $tiradas++;
     }
+    // valor del porcentaje= (cantidadTotal * porcentaje) / 100
 
-    
+    // valor del porcentaje*100= cantidadTotal * porcentaje
+
+    // (valor del porcentaje * 100) / cantidadTotal= porcentaje
+    echo "el 1 ha salido $cantidades[0] con un porcentaje de ". ($cantidades[0]*100)/$numTiradas ."%<br>";
+    echo "el 2 ha salido $cantidades[1] con un porcentaje de ". ($cantidades[1]*100)/$numTiradas ."%<br>";
+    echo "el 3 ha salido $cantidades[2] con un porcentaje de ". ($cantidades[2]*100)/$numTiradas ."%<br>";
+    echo "el 4 ha salido $cantidades[3] con un porcentaje de ". ($cantidades[3]*100)/$numTiradas ."%<br>";
+    echo "el 5 ha salido $cantidades[4] con un porcentaje de ". ($cantidades[4]*100)/$numTiradas ."%<br>";;
+    echo "el 6 ha salido $cantidades[5] con un porcentaje de ". ($cantidades[5]*100)/$numTiradas ."%<br>";
+
 }
 
 //al final se ponen las funciones
