@@ -1,7 +1,7 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-
+$array=array();
 //datos basicos
 
 
@@ -11,7 +11,7 @@ include_once(dirname(__FILE__) . "/../../cabecera.php");
 inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
-inicioCuerpo("EJERCICIO 1");
+inicioCuerpo("EJERCICIO 4");
 cuerpo();  //llamo a la vista
 finCuerpo();
 // **********************************************************

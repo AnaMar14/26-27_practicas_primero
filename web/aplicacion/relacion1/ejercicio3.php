@@ -98,6 +98,12 @@ function cuerpo($datos)
 }
 
 //al final se ponen las funciones
+/**
+ * Funcion que recorre y muestra los arrays con un for each
+ *
+ * @param array $array El array que queremos que muestre
+ * @return void
+ */
 function mostrar_array($array){
   
     foreach($array as $key => $valor){

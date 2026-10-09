@@ -2,13 +2,13 @@
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
 //variables
-$numTiradas=1000;
+const NUM_TIRADAS=1000;
 //contador de tiradas para el while
 $tiradas=0;
 //array donde guardaremos el total de veces que sale cada número
 $cantidades= array(0,0,0,0,0,0);
 $datos=[
-    "numTiradas"=> $numTiradas,
+    "numTiradas"=> NUM_TIRADAS,
     "tiradas"=> $tiradas,
     "cantidades"=> $cantidades
 ];
