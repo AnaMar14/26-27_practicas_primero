@@ -3,12 +3,27 @@
 body {
     background-color: rgb(207, 229, 213);
     font-size: 16px;
+    color:#500b49;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
-
+a{
+    color:#500b49;
+}
+a:visited{
+    color:#2b0327;
+}
+h1{
+    text-align: center;
+    padding-top: 20px;
+}
 #documento{
     margin: 0 auto;
     background-color: #eedaee;
     width: 700px;
+    box-shadow: 10px 14px 60px #2b0327;
+   
+    
 }
 #cabecera{
     background-color: #14e737;
@@ -23,9 +38,11 @@ body {
     font-size: 1.3em;
     font-style: italic;
 }
-
+#barraMenu{
+    border: 2px, #b876ae dotted;
+}
 #barraUbicacion{
-    background-color: gainsboro;
+    background-color: rgb(255, 243, 255);
     color:brown;
 }
 .boton{
