@@ -6,13 +6,14 @@ $array= array();
 $array2= array();
 $array3= array();
 $arrayRelleno=array(1.34,"nueva");
+//datos basicos
 $datos=[
     "array" => $array,
     "array2" => $array,
     "array3" => $array,
     "arrayRelleno" => $arrayRelleno
 ];
-//datos basicos
+
 
 
 

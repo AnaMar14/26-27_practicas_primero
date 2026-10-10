@@ -7,12 +7,13 @@ const NUM_TIRADAS=1000;
 $tiradas=0;
 //array donde guardaremos el total de veces que sale cada número
 $cantidades= array(0,0,0,0,0,0);
+//datos basicos
 $datos=[
     "numTiradas"=> NUM_TIRADAS,
     "tiradas"=> $tiradas,
     "cantidades"=> $cantidades
 ];
-//datos basicos
+
 
 
 

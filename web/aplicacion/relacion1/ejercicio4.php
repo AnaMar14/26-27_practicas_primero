@@ -11,12 +11,13 @@ $array=array(
 );
 $array2=array();
 const FILAS=5;
+//datos basicos
 $datos=[
     "array"=> $array,
     "array2"=>$array2,
     "filas"=> FILAS
 ];
-//datos basicos
+
 
 
 
