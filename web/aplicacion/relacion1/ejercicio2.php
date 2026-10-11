@@ -1,6 +1,19 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
+$barra=[
+     [
+       "TEXTO"=> "Inicio",
+       "ENLACE" =>"/index.php",
+     ],
+       [ 
+       "TEXTO"=> "Relación 1",   
+       "ENLACE" =>"/aplicacion/relacion1/index.php",
+     ], 
+       [ 
+       "TEXTO"=> "Ejercicio 2",   
+     ] 
+];
 //variables
 const NUM_TIRADAS=1000;
 //contador de tiradas para el while
@@ -22,7 +35,7 @@ $datos=[
 inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
-inicioCuerpo("EJERCICIO 2");
+inicioCuerpo("EJERCICIO 2",$barra);
 cuerpo($datos);  //llamo a la vista
 finCuerpo();
 // **********************************************************

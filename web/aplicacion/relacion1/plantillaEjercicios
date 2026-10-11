@@ -1,7 +1,19 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-
+$barra=[
+     [
+       "TEXTO"=> "Inicio",
+       "ENLACE" =>"/index.php",
+     ],
+       [ 
+       "TEXTO"=> "Relación 1",   
+       "ENLACE" =>"/aplicacion/relacion1/index.php",
+     ], 
+       [ 
+       "TEXTO"=> "Ejercicio 1",   
+     ] 
+];
 //datos basicos
 
 

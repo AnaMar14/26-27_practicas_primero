@@ -1,7 +1,19 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-
+$barra=[
+     [
+       "TEXTO"=> "Inicio",
+       "ENLACE" =>"/index.php",
+     ],
+       [ 
+       "TEXTO"=> "Pruebas",   
+       "ENLACE" =>"/aplicacion/pruebas/index.php",
+     ], 
+       [ 
+       "TEXTO"=> "Paso parámetros",   
+     ] 
+];
 //datos basicos
 $nombre="Vicente";
 $edad=30;
@@ -18,7 +30,7 @@ $otras=rellenarOtras();
 inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
-inicioCuerpo("PASO PARAMETROS");
+inicioCuerpo("Paso parámetros",$barra);
 cuerpo($basicos, $otras);  //llamo a la vista
 finCuerpo();
 // **********************************************************

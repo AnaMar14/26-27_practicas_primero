@@ -8,15 +8,15 @@ const NUME1=56;
 
 $barra=[
      [
-       "TEXTO"=> "inicio",
+       "TEXTO"=> "Inicio",
        "ENLACE" =>"/index.php",
      ],
        [ 
-       "TEXTO"=> "pruebas",   
+       "TEXTO"=> "Pruebas",   
        "ENLACE" =>"/aplicacion/pruebas/index.php",
      ], 
        [ 
-       "TEXTO"=> "eje. basicos",   
+       "TEXTO"=> "Eje. basicos",   
      ] 
 ];
 
@@ -25,7 +25,7 @@ $barra=[
 inicioCabecera("APLICACION PRIMER TRIMESTRE");
 cabecera();
 finCabecera();
-inicioCuerpo("pruebas basicas",$barra);
+inicioCuerpo("Pruebas basicas",$barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************

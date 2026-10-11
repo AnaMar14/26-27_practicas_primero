@@ -3,11 +3,11 @@ include_once(dirname(__FILE__) . "/cabecera.php");
 //controlador
 $barra=[
      [
-       "TEXTO"=> "inicio",
+       "TEXTO"=> "Inicio",
        "ENLACE" =>"/index.php",
        "ADICIONAL"=>">>"],
      [ 
-       "TEXTO"=> "otro"   
+       "TEXTO"=> "Otro"   
      ],  
      [ 
        "TEXTO"=> "index",
@@ -39,6 +39,6 @@ function cuerpo()
 {
 ?>
     <br><br>
-   <a href="./aplicacion/pruebas/index.php">Acceso a pruebas</a>
+   
 <?php
 }
