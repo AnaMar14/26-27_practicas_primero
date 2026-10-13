@@ -41,6 +41,13 @@ h1{
 #barraMenu{
     border: 2px, #b876ae dotted;
 }
+#barraMenu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
 #barraUbicacion{
     background-color: rgb(255, 243, 255);
     color:brown;
