@@ -1,0 +1,53 @@
+<?php
+include_once(dirname(__FILE__) . "/../../cabecera.php");
+//controlador
+$barra=[
+     [
+       "TEXTO"=> "Inicio",
+       "ENLACE" =>"/index.php",
+     ],
+       [ 
+       "TEXTO"=> "Relación 1",   
+       "ENLACE" =>"/aplicacion/relacion1/index.php",
+     ], 
+       [ 
+       "TEXTO"=> "Ejercicio 1",   
+     ] 
+];
+//datos basicos
+
+
+
+
+//dibuja la plantilla de la vista
+inicioCabecera("Mi aplicación");
+cabecera();
+finCabecera();
+inicioCuerpo("EJERCICIO 1");
+cuerpo();  //llamo a la vista
+finCuerpo();
+// **********************************************************
+
+//vista
+function cabecera() 
+{
+    ?>
+    
+<!--esto va en el head-->
+<?php
+
+}
+
+//vista
+function cuerpo()
+{
+?>
+    <br><br>
+   
+<?php
+
+   
+}
+
+//al final se ponen las funciones
+
