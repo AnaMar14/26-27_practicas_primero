@@ -31,12 +31,22 @@ Cadena hecha con Nowdoc
 Cadena 2: "$cadena2"
 EOT;
 $cadena5= "<b>Hello</b>";
-$cadena6=<<<EOT
+$cadena6='<b>Hello</b>';
+$cadena7=<<<EOT
     <b>Hello</b>
 EOT;
-$cadena7=<<<'EOT'
+$cadena8=<<<'EOT'
     <b>Hello</b>
 EOT;
+$cadena9="‘  “  á  é  ñ";
+$cadena10='‘  “  á  é  ñ';
+$cadena11 = <<<EOT
+‘  “  á  é  ñ
+EOT;
+$cadena12= <<<'EOT'
+‘  “  á  é  ñ
+EOT;
+$cadena13=htmlspecialchars("<b>Hello</b>");
 
 $datos=[
     "cadena1"=> $cadena1,
@@ -45,7 +55,13 @@ $datos=[
     "cadena4"=> $cadena4,
     "cadena5"=> $cadena5,
     "cadena6"=> $cadena6,
-    "cadena7"=> $cadena7
+    "cadena7"=> $cadena7,
+    "cadena8" =>$cadena8,
+    "cadena9" =>$cadena9,
+    "cadena10" =>$cadena10,
+    "cadena11" =>$cadena11,
+    "cadena12" =>$cadena12,
+    "cadena13" =>$cadena13
 ];
 //datos basicos
 
@@ -82,13 +98,19 @@ function cuerpo($datos)
 // etiquetas html y caracteres especiales como ‘, “, á, é, ñ. Muestra las cadenas y comprueba que
 // el código fuente es legible (no se tiene una sola línea con todo seguido). Haz que se muestren
 // las etiquetas html (no se ejecuten)
-echo("Cadena con comillas dobles: $datos[cadena1] <br>");
-echo("Cadena con comillas simples:  $datos[cadena2]<br>");
-echo("Cadena con Heredoc: $datos[cadena3]<br>");
-echo("Cadena con Nowdoc: $datos[cadena4] <br>");
+echo("Cadena con comillas dobles y variable: $datos[cadena1] <br>");
+echo("Cadena con comillas simples y variable:  $datos[cadena2]<br>");
+echo("Cadena con Heredoc y variable: $datos[cadena3]<br>");
+echo("Cadena con Nowdoc y variable: $datos[cadena4] <br>");
 echo("Etiquetas HTML en cadena normal: $datos[cadena5]<br>");
-echo("Etiquetas HTML en Heredoc: $datos[cadena6]<br>");
-echo("Etiquetas HTML en Nowdoc: $datos[cadena7]<br>");
+echo("Etiquetas HTML en cadena con comillas simples: $datos[cadena6]<br>");
+echo("Etiquetas HTML en Heredoc: $datos[cadena7]<br>");
+echo("Etiquetas HTML en Nowdoc: $datos[cadena8]<br>");
+echo("Caracteres especiales en cadena normal: $datos[cadena9]<br>");
+echo("Caracteres especiales en cadena con comillas simples: $datos[cadena10]<br>");
+echo("Caracteres especiales en Heredoc: $datos[cadena11]<br>");
+echo("Caracteres especiales en Nowdoc: $datos[cadena12]<br>");
+echo("Expresion html mostrada de forma literal: $datos[cadena13]<br>");
 
    
 }
