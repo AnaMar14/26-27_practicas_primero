@@ -7,11 +7,11 @@ $barra=[
        "ENLACE" =>"/index.php",
      ],
        [ 
-       "TEXTO"=> "Relación 1",   
+       "TEXTO"=> "Relación 2",   
        "ENLACE" =>"/aplicacion/relacion1/index.php",
      ], 
        [ 
-       "TEXTO"=> "Ejercicio 1",   
+       "TEXTO"=> "Ejercicio ",   
      ] 
 ];
 //datos basicos
@@ -23,7 +23,7 @@ $barra=[
 inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
-inicioCuerpo("EJERCICIO 1");
+inicioCuerpo("EJERCICIO ",$barra);
 cuerpo();  //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -42,7 +42,7 @@ function cabecera()
 function cuerpo()
 {
 ?>
-    <br><br>
+  
    
 <?php
 

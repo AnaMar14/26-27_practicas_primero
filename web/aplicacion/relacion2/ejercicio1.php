@@ -103,7 +103,7 @@ function cabecera()
 function cuerpo($datos)
 {
 ?>
-    <br><br>
+   
    
 <?php
 // Escribe distintas cadenas usando “, ‘, HEREDOC y NOWDOC incluyendo variables,
