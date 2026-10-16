@@ -7,6 +7,13 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
+header {
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+
 a{
     color:#500b49;
 }
@@ -29,6 +36,8 @@ h1{
     background-color: #14e737;
     padding: 5px;
 }
+
+
 #cabecera #logo{
     width: 75px;
     height: 50px;

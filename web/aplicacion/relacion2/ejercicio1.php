@@ -14,9 +14,9 @@ $barra=[
        "TEXTO"=> "Ejercicio 1",   
      ] 
 ];
-
-$cadena1="Hola";
-$cadena2='Adiós';
+$extra="Hasta luego";
+$cadena1="Hola, $extra";
+$cadena2='Adiós $extra';
 //El texto heredoc se comporta como un string entre 
 //comillas dobles, pero sin tener comillas dobles.
 $cadena3 = <<<EOT
