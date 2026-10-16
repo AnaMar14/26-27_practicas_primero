@@ -46,7 +46,16 @@ EOT;
 $cadena12= <<<'EOT'
 ‘  “  á  é  ñ
 EOT;
+//htmlspecialchars hace que en el texto las etiquetas html
+//se muestren de forma literal en vez de ejecutarse
 $cadena13=htmlspecialchars("<b>Hello</b>");
+$cadena14=htmlspecialchars('<b>Hello</b>');
+$cadena15 = htmlspecialchars (<<<EOT
+<b>Hello</b>
+EOT);
+$cadena16= htmlspecialchars (<<<'EOT'
+<b>Hello</b>
+EOT);
 
 $datos=[
     "cadena1"=> $cadena1,
@@ -61,7 +70,10 @@ $datos=[
     "cadena10" =>$cadena10,
     "cadena11" =>$cadena11,
     "cadena12" =>$cadena12,
-    "cadena13" =>$cadena13
+    "cadena13" =>$cadena13,
+    "cadena14" =>$cadena14,
+    "cadena15" =>$cadena15,
+    "cadena16" =>$cadena16
 ];
 //datos basicos
 
@@ -110,7 +122,11 @@ echo("Caracteres especiales en cadena normal: $datos[cadena9]<br>");
 echo("Caracteres especiales en cadena con comillas simples: $datos[cadena10]<br>");
 echo("Caracteres especiales en Heredoc: $datos[cadena11]<br>");
 echo("Caracteres especiales en Nowdoc: $datos[cadena12]<br>");
-echo("Expresion html mostrada de forma literal: $datos[cadena13]<br>");
+echo("Expresion html mostrada de forma literal (cadena normal): $datos[cadena13]<br>");
+echo("Expresion html mostrada de forma literal (cadena comillas simples): $datos[cadena14]<br>");
+echo("Expresion html mostrada de forma literal (cadena Heredoc): $datos[cadena15]<br>");
+echo("Expresion html mostrada de forma literal (cadena Nowdoc): $datos[cadena16]<br>");
+
 
    
 }
