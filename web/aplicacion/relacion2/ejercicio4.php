@@ -17,6 +17,10 @@ $barra=[
 //datos basicos
 $valor1=17.5;
 $valor2=379987.24;
+$valor2=number_format($valor2,2, "," , "."); //con number_formar indicamos que tenga dos decimales, que los decimales
+                                            //se muestren con comas, y que los miles se muentren con puntos
+$valor2=str_pad($valor2,15," ",STR_PAD_RIGHT);//el valor de los espacios no los he podido mostrar 
+                                                                //con str_pad ni con la opcion %^ 15 de printf
 $datos=[
     "valor1"=>$valor1,
     "valor2"=>$valor2
@@ -52,9 +56,7 @@ function cuerpo($datos)
 <?php
 
 
-$datos["valor2"]=number_format($datos["valor2"],2, "," , ".");
-$datos["valor2"]=str_pad($datos["valor2"],15," ",STR_PAD_RIGHT);//el valor de los espacios no los he podido mostrar 
-                                                                //con str_pad ni con la opcion %^ 15 de printf
+
 printf("El primer valor  -%'015.1f-, el segundo valor -%s- ",$datos["valor1"],$datos["valor2"]);
 //printf imprime por pantalla un string formateado
 // '015 ->  ' significa que va a rellenar el hueco restante con el valor que le indiques

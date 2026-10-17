@@ -20,6 +20,35 @@ const NUM_TIRADAS=1000;
 $tiradas=0;
 //array donde guardaremos el total de veces que sale cada número
 $cantidades= array(0,0,0,0,0,0);
+
+ while($tiradas<NUM_TIRADAS){
+         $dado= mt_rand(1,6);
+    //según el resultado del dado sumamos +1 al index correspondiente en el array.
+    // en este array el número dentro del índice 0 representa el número de veces que ha
+    //salido "1" en el dado, el del índice 1 el número de veces que ha salido "2"... 
+    //así sucesivamente
+         switch($dado){
+            case 1: 
+                $cantidades[0]++;
+                break;
+            case 2: 
+                $cantidades[1]++;
+                break;
+            case 3: 
+                $cantidades[2]++;
+                break;
+            case 4:
+                $cantidades[3]++;
+                break;
+            case 5: 
+                $cantidades[4]++;
+                break;
+            case 6: 
+                $cantidades[5]++;
+                break;
+        }
+        $tiradas++;
+    }
 //datos basicos
 $datos=[
     "numTiradas"=> NUM_TIRADAS,
@@ -70,34 +99,7 @@ function cuerpo($datos)
     echo "Lanzado el dado " . $datos['numTiradas'] . " veces <br>";
 
   
-    while($datos['tiradas']<$datos['numTiradas']){
-         $dado= mt_rand(1,6);
-    //según el resultado del dado sumamos +1 al index correspondiente en el array.
-    // en este array el número dentro del índice 0 representa el número de veces que ha
-    //salido "1" en el dado, el del índice 1 el número de veces que ha salido "2"... 
-    //así sucesivamente
-         switch($dado){
-            case 1: 
-                $datos['cantidades'][0]++;
-                break;
-            case 2: 
-                $datos['cantidades'][1]++;
-                break;
-            case 3: 
-                $datos['cantidades'][2]++;
-                break;
-            case 4:
-                $datos['cantidades'][3]++;
-                break;
-            case 5: 
-                $datos['cantidades'][4]++;
-                break;
-            case 6: 
-                $datos['cantidades'][5]++;
-                break;
-        }
-        $datos['tiradas']++;
-    }
+   
   
     //enseñamos por pantalla el total de veces que ha salido cada número y su porcentaje de aparición en esta tirada
     // (valor del porcentaje * 100) / cantidadTotal= porcentaje
