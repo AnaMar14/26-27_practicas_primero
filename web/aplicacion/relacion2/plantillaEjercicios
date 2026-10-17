@@ -15,7 +15,9 @@ $barra=[
      ] 
 ];
 //datos basicos
-
+$datos=[
+    
+];
 
 
 
@@ -24,7 +26,7 @@ inicioCabecera("Mi aplicación");
 cabecera();
 finCabecera();
 inicioCuerpo("EJERCICIO ",$barra);
-cuerpo();  //llamo a la vista
+cuerpo($datos);  //llamo a la vista
 finCuerpo();
 // **********************************************************
 
@@ -39,7 +41,7 @@ function cabecera()
 }
 
 //vista
-function cuerpo()
+function cuerpo($datos)
 {
 ?>
   
