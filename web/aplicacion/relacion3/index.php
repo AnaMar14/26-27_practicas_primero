@@ -2,7 +2,7 @@
 include 'libreria.php';
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-
+//¿EN LA RELACION 3 LAS VARIABLES SE HACEN EN LA VISTA O EN EL CONTROLADOR?
 $barra=[
     [
         "TEXTO"=> "Inicio",
