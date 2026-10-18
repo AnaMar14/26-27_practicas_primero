@@ -7,36 +7,38 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
+
 header {
     display: flex; 
     align-items: center; 
     gap: 15px; 
 }
 
-
-a{
-    color:#500b49;
-}
-a:visited{
-    color:#2b0327;
-}
 h1{
     text-align: center;
     padding-top: 20px;
 }
+
+a{
+    color:#500b49;
+}
+
+a:visited{
+    color:#2b0327;
+}
+
 #documento{
     margin: 0 auto;
     background-color: #eedaee;
     width: 700px;
     box-shadow: 10px 14px 60px #2b0327;
    
-    
 }
+
 #cabecera{
     background-color: #14e737;
     padding: 5px;
 }
-
 
 #cabecera #logo{
     width: 75px;
@@ -50,6 +52,7 @@ h1{
 #barraMenu{
     border: 2px, #b876ae dotted;
 }
+
 #barraMenu ul{
     list-style-type: none;
     margin: 0;
@@ -57,10 +60,26 @@ h1{
     display: flex;
     gap: 20px;
 }
+
+#barraMenu a:hover{
+    text-decoration: none;
+    background-color: #75326e;;
+    color:white;
+}
+
 #barraUbicacion{
     background-color: rgb(255, 243, 255);
     color:brown;
+    padding: 5px;
 }
+
+#barraUbicacion a:hover{
+    text-decoration: none;
+    background-color: #500b49;;
+    color:white;
+
+}
+
 .boton{
     background-color: blue;
     color:white;
