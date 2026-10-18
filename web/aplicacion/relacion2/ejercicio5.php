@@ -82,7 +82,7 @@ function cuerpo($datos)
    
 <?php
 
-echo("Elementos localizados dentro del array: <br>");
+echo("Elementos localizados dentro del Heredoc: <br>");
 
       echo(" <br> Etiquetas HTML: <br>");
       

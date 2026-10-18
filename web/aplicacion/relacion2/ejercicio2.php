@@ -117,7 +117,7 @@ for($i=(strlen($datos["cadena"])); $i>=0;$i--){
 
 /***************************************************************************************** */
 
-echo("Cadena separada en partes mediante una 'A' entre cada palabra:<br> ");
+echo("<br>Cadena separada en partes mediante una 'A' entre cada palabra:<br> ");
 //mb_split separa una cadena mediante un delimitador indicado o una expresion regular indicada
 foreach(mb_split("A",$datos["cadenaConA"]) as $seccion){
     echo ($seccion . "<br>");
@@ -125,7 +125,7 @@ foreach(mb_split("A",$datos["cadenaConA"]) as $seccion){
    
 /***************************************************************************************** */
 
-echo("Sustitución del espacio después de 'niña' por '/mujer':<br> ");
+echo("<br>Sustitución del espacio después de 'niña' por '/mujer':<br> ");
 echo (mb_ereg_replace("(?<=niña)[[:blank:]]","/mujer ",$datos["cadena"])); //las funciones mb_ereg no usa
                                                                 //delimitadores en la expresion regular que
                                                                 //se le introduce (no se usa /)
