@@ -58,8 +58,8 @@ foreach(mb_str_split($datos["cadena"]) as $indice => $caracter){ //mb_str_split 
                                                         //pero las letras con tilde o la ñ ocupan 2. Por eso str_split no nos sirve)
     
     $espacios= str_repeat("&nbsp",$indice);//str_repeat repite una cadena introducida el número de 
-                                        //veces indicado 
-   
+                                            //veces indicado 
+    
     echo ( $espacios . $caracter . "<br>");
 }
 
@@ -86,6 +86,7 @@ foreach(mb_str_split($datos["cadena"]) as $indice => $caracter){ //mb_str_split 
 echo ("Cadena recorrida con for y mb_substr: <br>");
 //Esta vez si funciona porque mb_substr hace lo mismo que substr pero orientado a carácteres multibytes
 for($i=0; $i<=(strlen($datos["cadena"]));$i++){ //mb_Strlen devuelve la longitud de una cadena
+  
     $espacios= str_repeat("&nbsp",$i);
    
     echo ( $espacios . mb_substr($datos["cadena"], $i,1) . "<br>");
@@ -102,6 +103,7 @@ for($i=0; $i<=(strlen($datos["cadena"]));$i++){ //mb_Strlen devuelve la longitud
 echo("Cadena mostrada en orden inverso usando mb_substr: ");
 //esta vez el bucle empieza por el numero total de caracteres y termina en 0
 for($i=(strlen($datos["cadena"])); $i>=0;$i--){ 
+
     $espacios= str_repeat("&nbsp",$i);
     //depende de si el caracter esta en una posicion par o impar, con mb_convert_case convertimos 
     // caracteres multibytes a mayuscula o minuscula segun indiquemos
@@ -114,14 +116,15 @@ for($i=(strlen($datos["cadena"])); $i>=0;$i--){
 }
 
 /***************************************************************************************** */
+
 echo("Cadena separada en partes mediante una 'A' entre cada palabra:<br> ");
 //mb_split separa una cadena mediante un delimitador indicado o una expresion regular indicada
 foreach(mb_split("A",$datos["cadenaConA"]) as $seccion){
     echo ($seccion . "<br>");
 }
-   /***************************************************************************************** */
-// Localiza en la cadena la palabra niña y cambia el siguiente carácter a niña (el
-// espacio en blanco) por "/mujer "
+   
+/***************************************************************************************** */
+
 echo("Sustitución del espacio después de 'niña' por '/mujer':<br> ");
 echo (mb_ereg_replace("(?<=niña)[[:blank:]]","/mujer ",$datos["cadena"])); //las funciones mb_ereg no usa
                                                                 //delimitadores en la expresion regular que

@@ -8,7 +8,7 @@ $barra=[
      ],
        [ 
        "TEXTO"=> "Relación 2",   
-       "ENLACE" =>"/aplicacion/relacion1/index.php",
+       "ENLACE" =>"/aplicacion/relacion2/index.php",
      ], 
        [ 
        "TEXTO"=> "Ejercicio 3",   
@@ -21,6 +21,7 @@ $caracteres="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz123456789";
 $arrayCaracteres=mb_str_split($caracteres); //convertimos la cadena con letras y números a un array 
 $arrayASCII=[]; //y aqui su conversion en ASCII
 const LONGITUDCADENA=20; //constante que indica la longitud total de la cadena random
+
 
 //rellenamos la variable cadenaRandom con posiciones random  del array "arrayCaracteres"
 for($i=0;$i<LONGITUDCADENA;$i++){
