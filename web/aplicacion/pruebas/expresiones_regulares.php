@@ -59,7 +59,7 @@ preg_match($exp,$cadena,$resultado,PREG_OFFSET_CAPTURE);
 
 //cuantificador
 $cadena="/*primer comentario*/";
-$exp="//\*.*\*//";
+$exp="/[\]\*.*?\*[\]/";
 preg_match($exp,$cadena,$resultado,PREG_OFFSET_CAPTURE);
 
 

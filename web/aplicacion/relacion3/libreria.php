@@ -45,5 +45,29 @@ function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2){ //
     return  true;
 }
 
+/**************************************************************************************************************** */
+
+// 2.- Función generarCadena(). A esta función se le pasa un parámetro con valor por defecto 10 y se
+// encarga de devolver una cadena de longitud la indicada cuyos caracteres son generados de forma
+// aleatoria (caracteres válidos: letras mayúsculas, minúsculas y números). Devolverá false si se ha
+// indicado un número negativo o igual a 0.
+// generarCadena(7);//crea la cadena de 7 caracteres “AcG_%15”
+
+function generarCadena(int $longitud=10){
+     //comprobamos losa argumentos pasados y si son incorrectos devolvemos false
+    if((!is_int($longitud))){
+        return false;
+    }
+    //devolvemos false si el número indicado es negativo o 0
+    if($longitud<=0){
+        return false;
+    }
+    $caracteres="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz123456789";
+    $resultado="";
+    for($i=1; $i<=$longitud;$i++){
+        $resultado=$resultado.$caracteres[rand(0,(strlen($caracteres)-1))];
+    }
+    return $resultado;
+}
 
 ?>

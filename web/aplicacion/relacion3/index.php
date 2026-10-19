@@ -37,6 +37,8 @@ function cuerpo()
 $array=array();
 $num1= 22;
 $num2= 0;
+echo ("<br>EJERCICIO 1<br>");
+
 echo ("Número que vamos a añadir al array: " . $num1 
 . "<br>Veces llamadas a la función: " . $num2 . "<br>");
 
@@ -88,5 +90,8 @@ if(cuentaVeces($array,"pos2",$num1,$num2)){
     echo "Error: La posición no puede ser '2daw' ni 'primera'";
     echo ("<br>Veces llamadas a la función: " . $num2 . "<br>");
 }
-
+/**************************************************************************** */
+echo ("<br>EJERCICIO 2<br>");
+echo(generarCadena()."<br>");
+echo(generarCadena(20));
 }
