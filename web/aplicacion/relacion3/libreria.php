@@ -69,7 +69,7 @@ function generarCadena(int $longitud=10):string|false{
     //generamos un caracter random dentro de la cadena caracter y lo guardamos
     //en resultado. Lo creamos tantas veces como la longitud pasada
     for($i=1; $i<=$longitud;$i++){
-        $resultado=$resultado.$caracteres[rand(0,(strlen($caracteres)-1))];
+        $resultado=$resultado.mb_convert_encoding ($caracteres[rand(0,(strlen($caracteres)-1))], "UTF-8");
     }
     return $resultado;
 }
