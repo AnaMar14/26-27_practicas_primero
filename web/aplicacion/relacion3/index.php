@@ -1,8 +1,8 @@
 <?php
-include 'libreria.php';
+include_once 'libreria.php';
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-//¿EN LA RELACION 3 LAS VARIABLES SE HACEN EN LA VISTA O EN EL CONTROLADOR?
+//se crean y rellenan con funciones las variables en el controlador
 $barra=[
     [
         "TEXTO"=> "Inicio",

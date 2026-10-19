@@ -1,0 +1,17 @@
+<?php
+const MIA=56;
+/**
+ * Funcion que devuelve un numero
+ * Si el número es menor de 10 devolverá un error
+ *
+ * @param integer $num Número al qye aplicar el doble
+ * @return integer|false Devuelve el doble del argumento o false en caso de error
+ */
+function doble(int $num): int|false
+{
+    //$num es menor de 10, consideramos que hay un error 
+    if ($num < 10)
+        return false;
+
+    return 2 * $num;
+}
