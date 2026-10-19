@@ -25,8 +25,9 @@
  * @param float $num1 Número que queremos pasarle al array
  * @param int $num2 Número que se le pasa para llevar la cuenta de las veces que has llamado a la función(cada
  * vez que uses la función, este número incrementará en uno)
+ * @return bool Devuelve true si la función ha funcionado y false si no
  */
-function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2){ //si añadimos & delante de los argumentos,
+function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2):bool{ //si añadimos & delante de los argumentos,
                                                                                 //hacemos que la funcion modifique la variable original
                                                                                 //que es mandanda
     //comprobamos losa argumentos pasados y si son incorrectos devolvemos false
@@ -47,14 +48,15 @@ function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2){ //
 
 /**************************************************************************************************************** */
 
-// 2.- Función generarCadena(). A esta función se le pasa un parámetro con valor por defecto 10 y se
-// encarga de devolver una cadena de longitud la indicada cuyos caracteres son generados de forma
-// aleatoria (caracteres válidos: letras mayúsculas, minúsculas y números). Devolverá false si se ha
-// indicado un número negativo o igual a 0.
-// generarCadena(7);//crea la cadena de 7 caracteres “AcG_%15”
-
-function generarCadena(int $longitud=10){
-     //comprobamos losa argumentos pasados y si son incorrectos devolvemos false
+/**
+ * Longitud que devuelve una cadena randomd de la longitud que le introduzcas
+ *
+ * @param integer $longitud La longitud de la que queramos que sea la cadena
+ * @return string|false Devuelve false si la función no se ejecuta bien o un string
+ *                      con el resultado de la cadena random
+ */
+function generarCadena(int $longitud=10):string|false{
+     //comprobamos los argumentos pasados y si son incorrectos devolvemos false
     if((!is_int($longitud))){
         return false;
     }
@@ -64,6 +66,8 @@ function generarCadena(int $longitud=10){
     }
     $caracteres="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz123456789";
     $resultado="";
+    //generamos un caracter random dentro de la cadena caracter y lo guardamos
+    //en resultado. Lo creamos tantas veces como la longitud pasada
     for($i=1; $i<=$longitud;$i++){
         $resultado=$resultado.$caracteres[rand(0,(strlen($caracteres)-1))];
     }
