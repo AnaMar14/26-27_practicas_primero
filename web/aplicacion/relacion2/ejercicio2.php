@@ -100,17 +100,17 @@ for($i=0; $i<=(strlen($datos["cadena"]));$i++){ //mb_Strlen devuelve la longitud
 // mayúscula (0, 2, …) y los impares en minúscula (1, 3, 5, …), y extrayendo los
 // caracteres con mb_substr.
 
-echo("Cadena mostrada en orden inverso usando mb_substr: ");
+echo("Cadena mostrada en orden inverso usando mb_substr:<br> ");
 //esta vez el bucle empieza por el numero total de caracteres y termina en 0
-for($i=(strlen($datos["cadena"])); $i>=0;$i--){ 
+for($i=1; $i<=(mb_strlen($datos["cadena"]));$i++){ 
 
     $espacios= str_repeat("&nbsp",$i);
     //depende de si el caracter esta en una posicion par o impar, con mb_convert_case convertimos 
     // caracteres multibytes a mayuscula o minuscula segun indiquemos
-   if($i%2==0){
-        echo ( $espacios . mb_convert_case(mb_substr($datos["cadena"], $i,1),MB_CASE_UPPER) . "<br>");
+   if(-$i%2==0){
+        echo ( $espacios . mb_convert_case(mb_substr($datos["cadena"], -$i,1),MB_CASE_UPPER) . "<br>");
    } else{
-        echo ( $espacios . mb_convert_case(mb_substr($datos["cadena"], $i,1),MB_CASE_LOWER) . "<br>");
+        echo ( $espacios . mb_convert_case(mb_substr($datos["cadena"], -$i,1),MB_CASE_LOWER) . "<br>");
    }
     
 }
