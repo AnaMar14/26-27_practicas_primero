@@ -30,10 +30,6 @@
 function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2):bool{ //si añadimos & delante de los argumentos,
                                                                                 //hacemos que la funcion modifique la variable original
                                                                                 //que es mandanda
-    //comprobamos losa argumentos pasados y si son incorrectos devolvemos false
-    if((!is_array($array)) || (!is_string($cadena)) || (!is_float($num1)) || (!is_int($num2))){
-        return false;
-    }
     //comprobamos que el indice asociativo no sea ni 2daw ni primera
     if($cadena=="2daw" || $cadena=="primera"){
         return  false;
@@ -56,10 +52,7 @@ function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2):boo
  *                      con el resultado de la cadena random
  */
 function generarCadena(int $longitud=10):string|false{
-     //comprobamos los argumentos pasados y si son incorrectos devolvemos false
-    if((!is_int($longitud))){
-        return false;
-    }
+     
     //devolvemos false si el número indicado es negativo o 0
     if($longitud<=0){
         return false;
@@ -74,4 +67,115 @@ function generarCadena(int $longitud=10):string|false{
     return $resultado;
 }
 
+/**************************************************************************************************************** */
+
+/**
+ * Función que realiza distintas operaciones sobre unos números pasados como parámetros.
+ * La operación se elige en función del primer número pasado (1-> suma, 
+ *                                                            2-> resta, 
+ *                                                            3-> multiplicacion, 
+ *                                                            4-> resta de la suma de pares menos la suma de immpares)
+ * @param integer $operacion Número que indica a la función qué operación se realizará
+ * @param float $num1 Primer operando
+ * @param float $num2 Segundo operando
+ * @param float $demas Los demás operando que queramos introducir (se pueden introducir tantos como necesites)
+ * @return float Resultado de la operación realizada
+ */
+
+function operaciones(int $operacion, float $num1, float $num2, float ...$demas):float|false{
+
+//Operaciones en función del primer número pasado
+switch($operacion){
+    case 1:
+        //sumamos los dos primeros operandos pasados y recorremos los demás operandos si se han introducido más,
+        //sumandolos uno a uno al resultado total
+        $suma=$num1+$num2;
+        foreach($demas as $numeros){
+            $suma+=$numeros;
+        }
+        return $suma;
+        break;
+    case 2:
+        //restamos al primer operando el segundo pasado y recorremos los demás si se han introducido más,
+        //restándolos uno a uno al resultado total
+        $resta= $num1-$num2;
+        foreach($demas as $numeros){
+            $resta-=$numeros;
+        }
+        return $resta;
+        break;
+    case 3:
+        //multiplicamos el primer operando con el segundo pasado y recorremos los demás si se han introducido más,
+        //multiplicandolos uno a uno al resultado total
+        $mult=$num1*$num2;
+         foreach($demas as $numeros){
+            $mult*=$numeros;
+        }
+        return $mult;
+        break;
+    //si se introduce cualquier otro numero para indicar la operacion que no sea 1,2 o 3, sumaremos todos los numeros
+    //pares introducidos así como los impares, y estos dos resultados los restaremos
+    default:
+        $pares=0;
+        $impares=0;
+        if(comprobarPar($num1)){//funcion que devuelve true si el numero es par y false si es impar
+            $pares+=$num1;
+        } else{
+            $impares+=$num1;
+        }
+        if(comprobarPar($num2)){
+            $pares+=$num2;
+        } else{
+            $impares+=$num2;
+        }
+        foreach($demas as $num){
+            if(comprobarPar($num)){
+                $pares+=$num;
+            } else{
+                $impares+=$num;
+            }
+        }
+        return $pares-$impares;
+        break;
+}
+}
+/**
+ * Función que comprueba si un número es par y devuelve true si lo es y false si no lo es
+ *
+ * @param int $num Número que le pasamos y que queremos comprobar si es par o no
+ * @return bool Devuelve true si es par y false si es impar
+ */
+
+function comprobarPar(int $num):bool{
+if($num%2==0){
+    return true;
+}
+return false;
+}
+
+/**************************************************************************************************************** */
+
+/**
+ * Función a la que le pasas 3 números y te deuvelve la multiplicación de estos.
+ * Además intercambia el valor del primer número que le pasas por la suma total de los 3 números.
+ *
+ * @param int $num1 Primer número pasado
+ * @param int $num2 Segundo número pasado
+ * @param int $num3 Tercer número pasado
+ * @return int Devuelve el total de la multiplicación de los tres números
+ */
+
+function devuelve(int &$num1, ?int $num2=2, int $num3=3):int{ // la interrogacion permite que en un parametro se le pueda pasar 
+                                                                //un valor null
+    if(!isset($num2)){//si el valor pasado es null hacemos que el segundo parámetro siga teniendo el valor de 2
+        $num2=2;
+    }
+        $mult=$num1*$num2*$num3; //realizamos la multiplicacion antes de cambiar el valor del primer parametro
+        $num1=$num1+$num2+$num3;
+        return $mult;
+}
+
 ?>
+
+
+
