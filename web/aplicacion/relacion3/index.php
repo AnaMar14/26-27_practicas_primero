@@ -107,7 +107,7 @@ echo ("<br>EJERCICIO 3<br>");
 echo("Suma de 56+88+34= " . operaciones(1,56,88,34) . "<br>");
 echo("Resta de 14,16 y 24 al número 100= " . operaciones(2,100,14,16,24) . "<br>");
 echo("Multiplicación de 2*3*4*5*6= " . operaciones(3,2,4,5,6) . "<br>");
-echo("Sumar pares e impares y restarle los impares a los pares(1,2,3,4,5,6,7,8,9)= " . operaciones(4,1,2,3,4,5,6,7,8,9) . "<br>");
+echo("Sumar posiciones pares y posiciones impares y restar los dos resultados(1,2,3,4,5,6,7,8,9)= " . operaciones(4,1,2,3,4,5,6,7,8,9) . "<br>");
 
 /*********************************************************************************************************/
 
@@ -130,7 +130,7 @@ echo("Primer parámetro después de llamar a la función: " . $datos["num4"]. "<
 echo("-----------------------------------------------------------<br>");
 echo("Le pasamos a la función 'devuelve()' solo los números 16 y 2 como tercer parámetro (valores por defecto=2 y 3): <br>");
 echo("Primer parámetro antes de llamar a la función: " . $datos["num4"] . "<br>");
-echo("Resultado función: " . devuelve($datos["num4"],null,$datos["num5"]). "<br>");
+echo("Resultado función: " . devuelve($datos["num4"],num3:$datos["num5"]). "<br>");//llamamos al parametro "num3" por nombre
 echo("Primer parámetro después de llamar a la función: " . $datos["num4"]. "<br>");
 
 }

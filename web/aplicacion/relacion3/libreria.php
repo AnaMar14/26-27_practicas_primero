@@ -114,25 +114,23 @@ switch($operacion){
         return $mult;
         break;
     //si se introduce cualquier otro numero para indicar la operacion que no sea 1,2 o 3, sumaremos todos los numeros
-    //pares introducidos así como los impares, y estos dos resultados los restaremos
+    //en posiciones pares introducidos así como los de posiciones impares, y estos dos resultados los restaremos
     default:
         $pares=0;
         $impares=0;
-        if(comprobarPar($num1)){//funcion que devuelve true si el numero es par y false si es impar
-            $pares+=$num1;
-        } else{
-            $impares+=$num1;
-        }
-        if(comprobarPar($num2)){
-            $pares+=$num2;
-        } else{
-            $impares+=$num2;
-        }
-        foreach($demas as $num){
-            if(comprobarPar($num)){
-                $pares+=$num;
-            } else{
+        //como '$num1' está en una posición impar (pos 1) lo añadimos a los
+        //números impares
+        $impares+=$num1;
+        $pares+=$num2;
+        
+        //El indice del array empieza por 0, pero en las variables su posicion es el
+        //3. Por lo que en el array, las posiciones pares corresponderan a las impares
+        //en las variables.
+        foreach($demas as $indice=> $num){
+            if(comprobarPar($indice)){//funcion que comprueba si el indice es par o impar
                 $impares+=$num;
+            } else{
+                $pares+=$num;
             }
         }
         return $pares-$impares;
@@ -165,11 +163,8 @@ return false;
  * @return int Devuelve el total de la multiplicación de los tres números
  */
 
-function devuelve(int &$num1, ?int $num2=2, int $num3=3):int{ // la interrogacion permite que en un parametro se le pueda pasar 
-                                                                //un valor null
-    if(!isset($num2)){//si el valor pasado es null hacemos que el segundo parámetro siga teniendo el valor de 2
-        $num2=2;
-    }
+function devuelve(int &$num1, int $num2=2, int $num3=3):int{ 
+    
         $mult=$num1*$num2*$num3; //realizamos la multiplicacion antes de cambiar el valor del primer parametro
         $num1=$num1+$num2+$num3;
         return $mult;
