@@ -1,22 +1,6 @@
 <?php
-// -Las funciones que realizan operaciones no muestran texto ni devuelven cadena con el
-// texto formateado, es la aplicación principal quien se encarga de mostrar los resultados. SOLO DEVOLVER VALORES NO EL FORMATO DEL RESULTAADO
 
-// - Se comprueban argumentos. En caso de error se devuelve false. En la aplicación
-// principal se comprueba si la llamada a una función es correcta o errónea. SE COMPRUEBA QUE SE HAYAN PASADDO LOS ARGUMENTOS BIEN,
-//                                                                           SI NO FUNCIONA LA FUNCION, DEVUELVE FALSE
-
-// - Se documentan las funciones indicando parámetros y operación: usar /**. Además se
-// indican comentarios en todo lo que se deba aclarar de su funcionamiento. COMENTARIOS
-
-// - En todas las funciones se le indicará el tipo de los parámetros/valor de retorno. //INDICAR TIPOS
-
-// - Cuando la función pueda devolver error, se hará la llamada comprobando si se ha producido o no
-// el error. DEJAR TAMBIEN LAS PRUEBAS DE CUANDO LA FUNCION NO DEBE DE IR
-
-/**************************************************************************************************************** */
-
-
+/*EJERCICIO 1*/ 
 
 /**
  * Función que rellena el indice asociativo de un array con un número pasado como argumento.
@@ -44,10 +28,12 @@ function cuentaVeces(array &$array, string $cadena, float $num1, int &$num2):boo
 
 /**************************************************************************************************************** */
 
+/*EJERCICIO 2*/
+
 /**
  * Longitud que devuelve una cadena randomd de la longitud que le introduzcas
  *
- * @param integer $longitud La longitud de la que queramos que sea la cadena
+ * @param int $longitud La longitud de la que queramos que sea la cadena
  * @return string|false Devuelve false si la función no se ejecuta bien o un string
  *                      con el resultado de la cadena random
  */
@@ -68,6 +54,7 @@ function generarCadena(int $longitud=10):string|false{
 }
 
 /**************************************************************************************************************** */
+/*EJERCICIO 3*/
 
 /**
  * Función que realiza distintas operaciones sobre unos números pasados como parámetros.
@@ -75,7 +62,7 @@ function generarCadena(int $longitud=10):string|false{
  *                                                            2-> resta, 
  *                                                            3-> multiplicacion, 
  *                                                            4-> resta de la suma de pares menos la suma de immpares)
- * @param integer $operacion Número que indica a la función qué operación se realizará
+ * @param int $operacion Número que indica a la función qué operación se realizará
  * @param float $num1 Primer operando
  * @param float $num2 Segundo operando
  * @param float $demas Los demás operando que queramos introducir (se pueden introducir tantos como necesites)
@@ -152,6 +139,7 @@ return false;
 }
 
 /**************************************************************************************************************** */
+/*EJERCICIO 4*/ 
 
 /**
  * Función a la que le pasas 3 números y te deuvelve la multiplicación de estos.
@@ -170,6 +158,110 @@ function devuelve(int &$num1, int $num2=2, int $num3=3):int{
         return $mult;
 }
 
+/**************************************************************************************************************** */
+
+/*EJERCICIO 5*/ 
+
+/**
+ * Funcion que suma dos números pasados por parámetro
+ * @param int $num1 Primer operando
+ * @param int $num2 Segundo operando
+ * @return int Resultado de la suma
+ */
+
+function suma(int $num1, int $num2):int{
+        return $num1+$num2;
+}
+
+/**
+ * Funcion que resta dos números pasados por parámetro
+ * @param int $num1 Primer operando
+ * @param int $num2 Segundo operando
+ * @return int Resultado de la resta
+ */
+
+function resta(int $num1, int $num2):int{
+        return $num1-$num2;
+}
+
+/**
+ * Funcion que multiplica dos números pasados por parámetro
+ * @param int $num1 Primer operando
+ * @param int $num2 Segundo operando
+ * @return int Resultado de la multiplicacion
+ */
+
+function multiplicacion(int $num1, int $num2):int{
+        return $num1*$num2;
+}
+
+/**
+ * Funcion que devuelve una operacion entre dos números segun la operacion 
+ * que le haya sido indicada como un string
+ * @param string $operacion Nombre de la operacion que quieres realizar
+ * @param int $num1 Primer operando
+ * @param int $num2 Segundo operando
+ * @return int|false Devuelve int si se ha realizado la operacion y false si la operacion
+ * introducida no está disponible
+ */
+
+function hacerOperacion(string $operacion,int $num1, int $num2):int|false{
+
+
+        switch($operacion){
+            case "suma":
+            case "resta":
+            case "multiplicacion":
+                //ejecutamos la funcion correspondiente
+                //mediante variable funcion
+                $calculos=$operacion($num1,$num2);
+                return $calculos;
+                //si no es ninguno de los casos disponibles, devuelve false
+            default:
+                return false;
+               
+
+        }
+}
+
+/**************************************************************************************************************** */
+/*EJERCICIO 6*/ 
+
+/**
+ * Funcion que usa callback para llamar a otra y que realize una operacion
+ * sobre los dos numeros que le indiques
+ * @param int $num1 Primer operando
+ * @param int $num2 Segundo operando
+ * @param callable $funcion Función que vamos a llamar para que use como
+ * parametros los dos operandos introducidos
+ * @return int Resultado que devuelve la función a la que llamamos
+ */
+
+function llamadaAFuncion(int $num1, int $num2, callable $funcion):int{
+        return $funcion($num1,$num2);
+}
+
+/**************************************************************************************************************** */
+/*EJERCICIO 7*/
+
+/**
+ * Funcion que ordena un array usando el método 'usort' con una función anónima
+ * definida
+ * @param array $array Array para ordenar
+ * @return void Reordena el propio array pasado por parámetro
+ * 
+ */
+
+function ordenar(array &$array):void{
+                //llamamos al metodo usort pasandole una funcion anonima
+                usort($array, function ($a,$b) {
+                        //si tienen la misma cantidad de letras usort devuelve 0
+                        if(mb_strlen($a)==mb_strlen($b)){
+                            return 0;
+                        }
+                        return mb_strlen($a)>mb_strlen($b)?-1:1;//de mayor a menor
+                });
+}
 ?>
 
 
