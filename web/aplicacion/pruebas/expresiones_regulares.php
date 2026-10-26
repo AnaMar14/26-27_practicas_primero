@@ -60,7 +60,7 @@ preg_match($exp,$cadena,$resultado,PREG_OFFSET_CAPTURE);
 //cuantificador
 $cadena="/*primer comentario*/";
 $exp="/[\]\*.*?\*[\]/";
-preg_match($exp,$cadena,$resultado,PREG_OFFSET_CAPTURE);
+//preg_match($exp,$cadena,$resultado,PREG_OFFSET_CAPTURE);
 
 
 //dibuja la plantilla de la vista
