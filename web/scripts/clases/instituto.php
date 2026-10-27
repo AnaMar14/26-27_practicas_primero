@@ -1,5 +1,9 @@
 <?php
 
-class Instituto{
-    public string $saludo="Hola";
+
+class instituto{
+
+    public string $saludo="hola";
+
+
 }
