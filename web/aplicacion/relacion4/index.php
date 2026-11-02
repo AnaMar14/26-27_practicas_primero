@@ -1,41 +1,37 @@
 <?php
 
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+
 //controlador
-//se crean y rellenan con funciones las variables en el controlador
-// En el controlador de index.php, se definirán variables para el 
-// acceso a las clases y se mostrará el funcionamiento de las distintas
-// clases en la vista. 
+// $objInstrumentoBase= new instrumentoBase("Piano");
+// $objInstrumentoBase2= new instrumentoBase("Trombón",5);
+$insViento=new InstrumentoViento('metal', 3);
+$insViento2=new InstrumentoViento('madera',8);
+$array1=["material"=>"acero" , "edad"=>2];
+$array2=["materiales"=>"acero" , "edades"=>3];
+$flauta1=Flauta::CrearDesdeArray($array1);
+$flauta2=clone $flauta1;
+$objeto= new ClaseMisPropiedades();
 
+$casos = EstadoCivil::casos();
+$estadoAleatorio = $casos[array_rand($casos)];
 
-// 1.- Crear la clase abstracta IntrumentoBase con el siguiente comportamiento. Definirla inicialmente 
-// como no abstracta para probar su funcionamiento. Una vez probado se pasará a abstracta: - 
-// Tiene el atributo descripción de tipo cadena. La descripción se puede fijar mediante el 
-// constructor o mediante métodos get/set públicos (ej para propiedad cadena, métodos 
-// getCadena/setCadena, no confundir con lo que veremos después como método mágico __get 
-// y __set). Directamente no puede ser accesible. - 
-// Tiene el atributo edad que no es accesible desde el exterior aunque si desde las clases 
-// descendientes. Su valor por defecto será 10. Se tiene método get para devolver su valor. Se 
-// asignará en el constructor.  
-// Para definir los atributos con valor por defecto se declaran en la clase, con el valor por 
-// defecto, se define un parámetro en el constructor con el valor por defecto y se asigna en el 
-// constructor. Así garantizas que cuando se llame al constructor, si no se indica ningún valor, 
-// - 
-// se asigne el de por defecto.  - - - - 
-// Se definen dos métodos abstractos: sonido (devuelve una frase que representa el sonido) y 
-// afinar (devuelve una cadena con los pasos necesarios para afinar el instrumento) 
-// Se define el método envejecer, que aumenta la edad del instrumento en un año. 
-// Se tiene una variable de clase protegida que controla cuantos elementos se han creado y una 
-// propiedad de instancia para indicar cuál es el orden de creación de la instancia. Cada vez 
-// que se crea un instrumento se le asigna a la instancia el número de orden de creación del 
-// instrumento actual y se incrementa el valor de la variable de clase. 
-// Cuando se muestre en un echo aparecerá “instrumento con descripción XXXXX, instancia 
-// 9999 de un total de 999. Tiene 999 años. La clase es XXXX”. La clase debe ser obtenida 
-// mediante get_class.  (999 representa un numero, XXX representa una cadena) 
-// No tiene la sobrecarga de propiedades por defecto. 
+$persona = Persona::registrarPersona(
+    "Laura",
+    "14/05/1999",
+    "Calle Mayor 12",
+    "Madrid",
+    $estadoAleatorio
+);
 $datos=[
-    
-
+    // "objInstrumentoBase"=>$objInstrumentoBase,
+    // "objInstrumentoBase2"=>$objInstrumentoBase2,
+    "insViento1"=>$insViento,
+    "insViento2"=>$insViento2,
+    "flauta1"=>$flauta1,
+    "flauta2"=>$flauta2,
+    "persona"=>$persona,
+    "objeto"=>$objeto
 
 ];
 $barra=[
@@ -64,6 +60,87 @@ function cuerpo($datos)
 {
 ?>
 <?php
+    // echo ("EJERCICIO 1: <br>");
+    // echo("Descripcion: " . $datos["objInstrumentoBase"]->getDescripcion() . "<br>");
+    // echo("Edad: " . $datos["objInstrumentoBase"]->getAge(). "<br>");
+    // echo("Funcion sonido: " . $datos["objInstrumentoBase"]->sonido(). "<br>");
+    // echo("Funcion afinar: ". $datos["objInstrumentoBase"]->afinar(). "<br>");
+    // echo("Funcion envejecer, resultado:". $datos["objInstrumentoBase"]->envejecer(). "<br>");
+    // echo($datos["objInstrumentoBase"]->getAge(). "<br>");
+    // echo("toString: ".$datos["objInstrumentoBase"]. "<br>");
+
+    // echo("----------------------------------------------------------------------------<br>");
+
+    
+    // echo("Descripcion: " . $datos["objInstrumentoBase2"]->getDescripcion() . "<br>");
+    // echo("Edad: " . $datos["objInstrumentoBase2"]->getAge(). "<br>");
+    // echo("Funcion sonido: " . $datos["objInstrumentoBase2"]->sonido(). "<br>");
+    // echo("Funcion afinar: ". $datos["objInstrumentoBase2"]->afinar(). "<br>");
+    // echo("Funcion envejecer, resultado:". $datos["objInstrumentoBase2"]->envejecer(). "<br>");
+    // echo($datos["objInstrumentoBase2"]->getAge(). "<br>");
+    // echo("toString: ".$datos["objInstrumentoBase2"]. "<br>");
+    
+
+     echo ("EJERCICIO 3: <br>");
+    echo("----------------------------------------------------------------------------<br>");
+    echo("Descripcion: " . $datos["insViento1"]->getDescripcion() . "<br>");
+    echo("Edad: " . $datos["insViento1"]->getAge(). "<br>");
+    echo("Funcion sonido: " . $datos["insViento1"]->sonido(). "<br>");
+    echo("Funcion afinar: ". $datos["insViento1"]->afinar(). "<br>");
+    echo("Funcion envejecer, resultado:". $datos["insViento1"]->envejecer(). "<br>");
+    echo($datos["insViento1"]->getAge(). "<br>");
+    echo("toString: ".$datos["insViento1"]. "<br>");
+    echo("----------------------------------------------------------------------------<br>");
+    echo("Descripcion: " . $datos["insViento2"]->getDescripcion() . "<br>");
+    echo("Edad: " . $datos["insViento2"]->getAge(). "<br>");
+    echo("Funcion sonido: " . $datos["insViento2"]->sonido(). "<br>");
+    echo("Funcion afinar: ". $datos["insViento2"]->afinar(). "<br>");
+    echo("Funcion envejecer, resultado:". $datos["insViento2"]->envejecer(). "<br>");
+    echo($datos["insViento2"]->getAge(). "<br>");
+    echo("toString: ".$datos["insViento2"]. "<br>");
+    echo("<br>");
+    echo("<br>");
+
+
+
+    echo ("EJERCICIO 4: <br>");
+    echo("----------------------------------------------------------------------------<br>");
+    echo("Descripcion: " . $datos["flauta1"]->getDescripcion() . "<br>");
+    echo("Edad: " . $datos["flauta1"]->getAge(). "<br>");
+    echo("Funcion sonido: " . $datos["flauta1"]->sonido(). "<br>");
+    echo("Funcion afinar: ". $datos["flauta1"]->afinar(). "<br>");
+    echo("Funcion envejecer, resultado:". $datos["flauta1"]->envejecer(). "<br>");
+    echo($datos["flauta1"]->getAge(). "<br>");
+    echo("toString: ".$datos["flauta1"]. "<br>");
+    echo("<br>Método fabricación: " . $datos["flauta1"]->metodoFabricacion() . "<br>");
+    echo("<br>Método reciclado: " . $datos["flauta1"]->metodoReciclado() . "<br>");
+    echo("<br>Clonacion flauta1: " . $datos["flauta2"] . "<br>");
+    echo("----------------------------------------------------------------------------<br>");
+    echo("<br>");
+    echo("<br>");
+
+
+
+
+    echo ("EJERCICIO 5: <br>");
+    echo("----------------------------------------------------------------------------<br>");
+    echo($datos["persona"]);
+    echo("<br>");
+    echo("<br>");
+
+
+
+
+    echo ("EJERCICIO 6: <br>");
+    echo("----------------------------------------------------------------------------<br>");
+    $datos["objeto"]->propPublica="publica";
+    echo( "Propiedad publica: ".$datos["objeto"]->propPublica . "<br>");
+   // $datos["objeto"]->_propPrivada="privada";  //no es valida al ser privada
+    $datos["objeto"]->propiedad1=25;
+    echo( "Propiedad1: ".$datos["objeto"]->propiedad1 . "<br>");
+    $datos["objeto"]->propiedad2="cadena de texto";
+    echo( "Propiedad2: ".$datos["objeto"]->propiedad2 . "<br>");
+    echo ($datos["objeto"]->propiedad3); // esto debería dar un error al no haber asignado previamente la propiedad
 
 
 
