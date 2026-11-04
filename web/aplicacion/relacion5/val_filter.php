@@ -12,7 +12,7 @@ namespace VALFILTER;
 
 
 /**
- * Función que comprueba que un número se encuentre dentro de 
+ * Función que comprueba que un número entero se encuentre dentro de 
  * un rango indicado, y si no lo está, se le asigna un número por defecto
  * al número inicialmente comprobado.
  * Sanea el número introducido en caso de que no sea valido.
@@ -26,8 +26,7 @@ namespace VALFILTER;
  */
 
 function validaEntero(int &$var, int $min, int $max, int $defecto):bool{
-   if (!(filter_var($var,FILTER_SANITIZE_NUMBER_INT)==false)){ //filter_var devuelve o false si el número ya está saneado 
-                                                              //comprobamos que no devuelva false antes de sanearlo y cambiar el valor original
+   if ((filter_var($var,FILTER_VALIDATE_INT)===false)){ //si no es un número int válido, lo sanea
     $var=filter_var($var,FILTER_SANITIZE_NUMBER_INT);
    }
 
@@ -37,4 +36,34 @@ function validaEntero(int &$var, int $min, int $max, int $defecto):bool{
             $var=$defecto;
             return false;
    
+}
+
+
+/************************************************************************************* */
+
+/**
+ * Función que comprueba que un número real se encuentre dentro de 
+ * un rango indicado, y si no lo está, se le asigna un número por defecto
+ * al número inicialmente comprobado.
+ * Sanea el número introducido en caso de que no sea valido.
+ *
+ * @param float $var Numero a comprobar
+ * @param float $min  Numero que define el valor minimo del rango
+ * @param float $max Numero que define el valor maximo del rango
+ * @param float $defecto Numero que se asigna por defecto si no entra en el rango
+ * @return bool Devuelve true si el número cumple con el rango, y false si no. Además en caso de false
+ * se cambia el valor original del número introducido por el por defecto indicado.
+ */
+
+function validaReal(float &$var, float $min, float $max, float $defecto):bool{
+     if ((filter_var($var, FILTER_VALIDATE_FLOAT)===false)){ //si no es un número real válido, lo sanea
+    $var=filter_var($var,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION); //allow_fraction nos permite
+                                                                                    //el uso de un punto para indicar decimales al pasarle el número
+                                                                                    //que debe sanear. De otra forma sanea quitando el punto.
+    }
+    if($var>=$min && $var<=$max){
+        return true;
+    }
+    $var=$defecto;
+    return false;
 }

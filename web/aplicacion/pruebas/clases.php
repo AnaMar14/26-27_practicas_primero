@@ -50,8 +50,22 @@ $segunda=Unica::crear(300);
 
 $ins=new Instituto();
 
+//sobrecarga
+$clase1=new Clasenormal();
+$clase2=new Clasenormal();
 
+$clase1->cadena="Hola mundo";
+$cad="";
+if(isset($clase1->cadena))
+    $cad=$clase1->cadena;
 
+if(isset($clase2->cadena))
+    $cad=$clase2->cadena;
+
+//clase sin sobrecarga
+$clase1=ClaseSinsobrecarga();
+
+$clase1->cadena="adios";
 //dibuja la plantilla de la vista
 inicioCabecera("APLICACION PRIMER TRIMESTRE");
 cabecera();

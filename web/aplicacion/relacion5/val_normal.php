@@ -13,7 +13,7 @@
 namespace VALNORMAL;
 
 /**
- * Función que comprueba que un número se encuentre dentro de 
+ * Función que comprueba que un número entero se encuentre dentro de 
  * un rango indicado, y si no lo está, se le asigna un número por defecto
  * al número inicialmente comprobado.
  *
@@ -32,3 +32,30 @@ function validaEntero(int &$var, int $min, int $max, int $defecto):bool{
     $var=$defecto;
     return false;
 }
+
+/************************************************************************************* */
+
+/**
+ * Función que comprueba que un número real se encuentre dentro de 
+ * un rango indicado, y si no lo está, se le asigna un número por defecto
+ * al número inicialmente comprobado.
+ *
+ * @param float $var Numero a comprobar
+ * @param float $min  Numero que define el valor minimo del rango
+ * @param float $max Numero que define el valor maximo del rango
+ * @param float $defecto Numero que se asigna por defecto si no entra en el rango
+ * @return bool Devuelve true si el número cumple con el rango, y false si no. Además en caso de false
+ * se cambia el valor original del número introducido por el por defecto indicado.
+ */
+
+function validaReal(float &$var, float $min, float $max, float $defecto):bool{
+    if($var>=$min && $var<=$max){
+        return true;
+    }
+    $var=$defecto;
+    return false;
+}
+
+
+/************************************************************************************* */
+
