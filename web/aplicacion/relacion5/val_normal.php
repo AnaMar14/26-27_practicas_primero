@@ -59,3 +59,12 @@ function validaReal(float &$var, float $min, float $max, float $defecto):bool{
 
 /************************************************************************************* */
 
+// function validaFecha(string &$var, string $defecto):bool Esta función comprueba que $var
+// contiene una fecha correcta en el formato dd/mm/aaaa. En $var se devuelve la fecha saneada
+// (2 cifras para dia y mes y cuatro para año- ej fecha 1/2/2023 es válida aunque se sanea y se
+// convierte en 01/02/2023). En caso de no cumplir las condiciones devuelve $defecto en
+// $var. La función devuelve true si es correcta y false en caso contrario.
+
+function validaFecha(string &$var, string $defecto):bool {
+    $patron = "/^[0,1,2]?[0-9]\/[0,1,2]?[0-9]\/[0-9]{4}/";
+}
