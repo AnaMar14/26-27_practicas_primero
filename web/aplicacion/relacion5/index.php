@@ -13,11 +13,29 @@ $num3=-8;
 \VALNORMAL\validaReal($num3,-10,-1,-5); //ejecutamos las funciones para las variables que acabamos de crear
 $num4=2.5;
 \VALFILTER\validaReal($num4,1,2,1);
+
+$fecha1="8/7/2026";
+$fecha2="29/2/2026";
+$fecha3="1-1-2022";
+
+$hora1="22:02:02";
+$hora2="22:61:34";
+$hora3="12.30.00";
+
+$correo1="juanñ pérez@gmail.com";
+
 $datos=[
   "num1"=>$num1,
   "num2"=>$num2,
   "num3"=>$num3,
-  "num4"=>$num4
+  "num4"=>$num4,
+  "fecha1"=>$fecha1,
+  "fecha2"=>$fecha2,
+  "fecha3"=>$fecha3,
+  "hora1"=>$hora1,
+  "hora2"=>$hora2,
+  "hora3"=>$hora3,
+  "correo1"=>$correo1
 
 ];
 $barra=[
@@ -58,5 +76,43 @@ echo($datos["num3"] . "<br>");
 echo("Funcion en val_filter con el valor 2.5:<br>");
 echo($datos["num4"]. "<br>");
 
+echo("<h3>Funcion Valida Fecha:<br></h3>");
+echo("Funcion en val_normal:<br>");
+echo("Fecha antes de validar: " . $datos["fecha1"] . "<br>");
+\VALNORMAL\validaFecha($datos["fecha1"],"1/1/2024");
+echo("Fecha después de validar: " . $datos["fecha1"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Fecha antes de validar: " . $datos["fecha2"] . "<br>");
+\VALFILTER\validaFecha($datos["fecha2"],"1/1/2024");
+echo("Fecha después de validar: " . $datos["fecha2"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Fecha antes de validar: " . $datos["fecha3"] . "<br>");
+\VALFILTER\validaFecha($datos["fecha3"],"1/1/2024");
+echo("Fecha después de validar: " . $datos["fecha3"] . "<br>");
 
+
+echo("<h3>Funcion Valida Hora:<br></h3>");
+echo("Funcion en val_normal:<br>");
+echo("Hora antes de validar: " . $datos["hora1"] . "<br>");
+\VALNORMAL\validaHora($datos["hora1"],"00:00:00");
+echo("Hora después de validar: " . $datos["hora1"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Hora antes de validar: " . $datos["hora2"] . "<br>");
+\VALFILTER\validaFecha($datos["hora2"],"00:00:00");
+echo("Hora después de validar: " . $datos["hora2"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Hora antes de validar: " . $datos["hora3"] . "<br>");
+\VALFILTER\validaFecha($datos["hora3"],"00:00:00");
+echo("Hora después de validar: " . $datos["hora3"] . "<br>");
+echo("Correo antes de validar: " . $datos["correo1"] . "<br>");
+var_dump(\VALNORMAL\validaEmail($datos["correo1"],"ejemplo@gmail.com"));
+echo("Correo después de validar: " . $datos["correo1"] . "<br>");
 }
