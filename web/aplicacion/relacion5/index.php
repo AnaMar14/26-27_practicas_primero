@@ -18,12 +18,16 @@ $fecha1="8/7/2026";
 $fecha2="29/2/2026";
 $fecha3="1-1-2022";
 
-$hora1="22:02:02";
+$hora1="22:2:2";
 $hora2="22:61:34";
 $hora3="12.30.00";
 
 $correo1="juanñ pérez@gmail.com";
+$correo2="ana@@gmail.com";
+$correo3="juáanañ@g.educaand.es";
 
+$cadena1="Pájaro";
+$cadena2="Descampado";
 $datos=[
   "num1"=>$num1,
   "num2"=>$num2,
@@ -35,7 +39,11 @@ $datos=[
   "hora1"=>$hora1,
   "hora2"=>$hora2,
   "hora3"=>$hora3,
-  "correo1"=>$correo1
+  "correo1"=>$correo1,
+  "correo2"=>$correo2,
+  "correo3"=>$correo3,
+  "cadena1"=>$cadena1,
+  "cadena2"=>$cadena2
 
 ];
 $barra=[
@@ -104,15 +112,44 @@ echo("<br>");
 echo("<br>");
 echo("Funcion en val_filter:<br>");
 echo("Hora antes de validar: " . $datos["hora2"] . "<br>");
-\VALFILTER\validaFecha($datos["hora2"],"00:00:00");
+\VALFILTER\validaHora($datos["hora2"],"00:00:00");
 echo("Hora después de validar: " . $datos["hora2"] . "<br>");
 echo("<br>");
 echo("<br>");
 echo("Funcion en val_filter:<br>");
 echo("Hora antes de validar: " . $datos["hora3"] . "<br>");
-\VALFILTER\validaFecha($datos["hora3"],"00:00:00");
+\VALFILTER\validaHora($datos["hora3"],"00:00:00");
 echo("Hora después de validar: " . $datos["hora3"] . "<br>");
+
+echo("<h3>Funcion Valida Fecha:<br></h3>");
+echo("Funcion en val_normal:<br>");
 echo("Correo antes de validar: " . $datos["correo1"] . "<br>");
-var_dump(\VALNORMAL\validaEmail($datos["correo1"],"ejemplo@gmail.com"));
+\VALNORMAL\validaEmail($datos["correo1"],"ejemplo@gmail.com");
 echo("Correo después de validar: " . $datos["correo1"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_normal:<br>");
+echo("Correo antes de validar: " . $datos["correo2"] . "<br>");
+\VALNORMAL\validaEmail($datos["correo2"],"ejemplo@gmail.com");
+echo("Correo después de validar: " . $datos["correo2"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Correo antes de validar: " . $datos["correo3"] . "<br>");
+\VALFILTER\validaEmail($datos["correo3"],"ejemplo@gmail.com");
+echo("Correo después de validar: " . $datos["correo3"] . "<br>");
+
+
+echo("<h3>Funcion Valida Cadena:<br></h3>");
+echo("Funcion en val_normal:<br>");
+echo("Cadena antes de validar: " . $datos["cadena1"] . "<br>");
+\VALNORMAL\validaCadena($datos["cadena1"],7,"nido");
+echo("Cadena después de validar: " . $datos["cadena1"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Cadena antes de validar: " . $datos["cadena2"] . "<br>");
+\VALFILTER\validaCadena($datos["cadena2"],5,"campo");
+echo("Cadena después de validar: " . $datos["cadena2"] . "<br>");
+
 }

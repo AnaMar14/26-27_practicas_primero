@@ -157,13 +157,19 @@ function validaHora(string &$var,string $defecto):bool{
 
 /************************************************************************************* */
 
-// function validaEmail(string &$var, string $defecto):bool Esta función comprueba que $var
-// contiene un email correcto en el formato aaaaa@bbbb.ccc. En $var se devuelve el email
-// saneado (en caso de no cumplir las condiciones devuelve $defecto). La función devuelve
-// true si es correcto y false en caso contrario
+/**
+ * Función que comprueba que un correo introducido tenga el formato correcto.
+ * Si el formato del correo es correcto, se devuelve el correo saneado (quitandole simbolos y
+ * caracteres invalidos) y si no lo es, al correo inicial se le asigna un correo por defecto.
+ *
+ * @param string $var Correo introducido a validar
+ * @param string $defecto Correo que se asigna por defecto si el inicial no es válido
+ * @return bool Devuelve true si el correo introducido es válido y false si no lo es
+ * 
+ */
 
 function validaEmail(string &$var, string $defecto):bool{
-    $patron="/^[a-z0-9]+@[[:lower:]]+\.([[:lower:]][.]?)+$/";
+    $patron="/^[^@]+@[[:lower:]]+\.([[:lower:]][.]?)+$/";
 
      if(preg_match($patron,$var)){
         if(filter_var($var, FILTER_VALIDATE_EMAIL)===false){
@@ -176,4 +182,26 @@ function validaEmail(string &$var, string $defecto):bool{
     $var=$defecto;
     return false;
 }
-    
+
+/************************************************************************************* */
+/**
+ * Función que comprueba que una cadena introducida no se pase de una longitud 
+ * máxima indicada. Si la cadena se pasa de longitud, se le asigna una nueva cadena 
+ * por defecto.
+ * 
+ * @param string $var Cadena a comprobar
+ * @param int $longitud Longitud máxima que puede alcanzar la cadena
+ * @param string $defecto Cadena que asignamos a la cadena inicial en caso de que
+ * sea incorrecta
+ * @return bool Devuelve true si la cadena cumple el máximo de longitud y false si
+ * se pasa.
+ */
+
+function validaCadena(string &$var, int $longitud, string $defecto):bool{
+    if(mb_strlen($var)>$longitud){
+        $var=$defecto;
+        return false;
+    }
+    $var=filter_var($var,FILTER_SANITIZE_STRING);
+    return true;
+}
