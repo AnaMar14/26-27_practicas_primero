@@ -1,67 +1,113 @@
 <?php
 
+/**
+ * Clase que implementa la sobrecarga y la iteración sobre las propiedades sobrecargadas
+ */
 class ClaseMisPropiedades implements Iterator
 {
-    //variables
-    private array $_propiedades = array();
-    public mixed $propPublica = null;
+    //propiedades
+    private array $_propiedades = [];  //para almacenar las propiedades dinamicas
+    public mixed $propPublica=0;
     private mixed $_propPrivada = 25;
-    //variables para iterator
-    private array $_claves = array();
-    private int $_posicion = 0;
+    private int $_pos=0;
 
-
-    //redefinicion __Set __Get 
-    public function __set(string $nombre, mixed $valor): void
+    /**
+     * método mágico para asignar la propiedad sobrecargada
+     *
+     * @param string $name   propiedad
+     * @param mixed $value   valor
+     * @return void
+     */
+    public function __set(string $name, mixed $value): void
     {
-        if ($nombre == "_propPrivada" || $nombre == "_propiedades") {
-            throw new Exception("No se puede asignar la propiedad " . $nombre);
+        if ($name === '_propPrivada') {
+            throw new Exception("La propiedad {$name} no existe.");
         }
-        $this->_propiedades[$nombre] = $valor;
+
+        $this->_propiedades[$name] = $value;
     }
 
-    public function __get(string $nombre): mixed
+    /**
+     * método mágico para devolver una propiedad sobrecargada
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function __get(string $name): mixed
     {
-        if (array_key_exists($nombre, $this->_propiedades)) {
-            return $this->_propiedades[$nombre];
+        // Impedir lectura externa directa de la privada pedida
+        if ($name === '_propPrivada') {
+            throw new Exception("La propiedad {$name} no es accesible.");
         }
-        return "No existe la propiedad " . $nombre;
+
+        // Devolver dinámicas si existen
+        if (array_key_exists($name, $this->_propiedades)) {
+            return $this->_propiedades[$name];
+        }
+
+        // No existe ni fue asignada previamente
+        throw new Exception("La propiedad {$name} no existe.");
     }
 
-    //metodos para usar iterator
+    /**
+     * Método mágico que comprueba si existe una propiedad
+     *
+     * @param string $name  propiedad
+     * @return boolean  devuelve si existe o no
+     */
+    public function __isset(string $name):bool
+    {
+        return (isset($this->_propiedades["$name"]));
+    }
+
+    /**
+     * Metodo que quita la asignación de una propiedad
+     *
+     * @param string $name propiedad
+     * @return void
+     */
+    public function __unset(string $name):void
+    {
+        if (isset($this->_propiedades["$name"]))
+            unset($this->_propiedades["$name"]);
+    }
+
+    //implementación de la interfaz iterable
     public function rewind(): void
     {
-        $this->_claves = array_keys($this->_propiedades);
-        $this->_claves[] = "propPublica";
-        $this->_claves[] = "_propPrivada";
-        $this->_posicion = 0;
+        $this->_pos = 0;
+        
     }
 
     public function current(): mixed
     {
-        $clave = $this->_claves[$this->_posicion];
-
-        if ($clave == "propPublica") {
+        if ($this->_pos==count($this->_propiedades))
             return $this->propPublica;
-        }
-        if ($clave == "_propPrivada") {
+        if ($this->_pos==count($this->_propiedades)+1)
             return $this->_propPrivada;
-        }
-        return $this->_propiedades[$clave];
+
+        $valores=array_values($this->_propiedades);
+        return ($valores[$this->_pos]);
     }
 
     public function key(): mixed
     {
-        return "oi_" . $this->_claves[$this->_posicion];
+        if ($this->_pos==count($this->_propiedades))
+            return "oi_propPublica";
+        if ($this->_pos==count($this->_propiedades)+1)
+            return "oi_propPrivada";
+
+        $claves=array_keys($this->_propiedades);
+        return ("oi_".$claves[$this->_pos]);
     }
 
     public function next(): void
     {
-        $this->_posicion++;
+        $this->_pos++;
     }
 
     public function valid(): bool
     {
-        return $this->_posicion < count($this->_claves);
+        return ($this->_pos <= count($this->_propiedades)+1);
     }
 }

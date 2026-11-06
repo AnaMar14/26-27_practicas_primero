@@ -1,36 +1,26 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
-$barra=[
-     [
-       "TEXTO"=> "Inicio",
-       "ENLACE" =>"/index.php",
-     ],
-       [ 
-       "TEXTO"=> "Pruebas",   
-       "ENLACE" =>"/aplicacion/pruebas/index.php",
-     ], 
-       [ 
-       "TEXTO"=> "Paso parámetros",   
-     ] 
-];
+
 //datos basicos
 $nombre="Vicente";
 $edad=30;
+
 $basicos=[
-    "nombre" => $nombre,
-    "edad" => $edad
+    "nombre"=>$nombre,
+    "edad"=>$edad
 ];
+
 //relleno otras
 $otras=rellenarOtras();
 
 
 
 //dibuja la plantilla de la vista
-inicioCabecera("Mi aplicación");
+inicioCabecera("Mi aplicacion");
 cabecera();
 finCabecera();
-inicioCuerpo("Paso parámetros",$barra);
+inicioCuerpo("PASO PARAMETROs");
 cuerpo($basicos, $otras);  //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -39,8 +29,10 @@ finCuerpo();
 function cabecera() 
 {
     ?>
-<!--esto va en el head-->
-<?php
+    <!-- esto va en el head -->
+     <?php   
+
+
 
 }
 
@@ -49,13 +41,15 @@ function cuerpo($bas, $ot)
 {
 ?>
     <br><br>
-   
+
 <?php
 
-    echo  "Mi nombre es{$bas["nombre"]} de {$bas["edad"]} años".PHP_EOL;
-    echo "y estoy en {$ot}".PHP_EOL;
+
+    echo "Mi nombre es {$bas["nombre"]} de {$bas["edad"]} años".PHP_EOL;
+    "Con otros datos {$ot}";
+
 }
-//al final se ponen las funciones
+
 
 function rellenarOtras(){
     return "de 2 DAW";
