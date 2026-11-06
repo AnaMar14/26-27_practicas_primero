@@ -28,6 +28,9 @@ $correo3="juáanañ@g.educaand.es";
 
 $cadena1="Pájaro";
 $cadena2="Descampado";
+
+$cadena3="YCWB1234";
+$cadena4="Ycm5943";
 $datos=[
   "num1"=>$num1,
   "num2"=>$num2,
@@ -43,7 +46,9 @@ $datos=[
   "correo2"=>$correo2,
   "correo3"=>$correo3,
   "cadena1"=>$cadena1,
-  "cadena2"=>$cadena2
+  "cadena2"=>$cadena2,
+  "cadena3"=>$cadena3,
+  "cadena4"=>$cadena4
 
 ];
 $barra=[
@@ -151,5 +156,17 @@ echo("Funcion en val_filter:<br>");
 echo("Cadena antes de validar: " . $datos["cadena2"] . "<br>");
 \VALFILTER\validaCadena($datos["cadena2"],5,"campo");
 echo("Cadena después de validar: " . $datos["cadena2"] . "<br>");
+
+echo("<h3>Funcion Valida Expresión:<br></h3>");
+echo("Funcion en val_normal:<br>");
+echo("Cadena antes de validarla con expresion regular: " . $datos["cadena3"] . "<br>");
+\VALNORMAL\validaExpresion($datos["cadena3"],"/^[A-Z]{4}[0-9]{4}$/","ABCD1234");
+echo("Cadena después de validarla con expresion regular: " . $datos["cadena3"] . "<br>");
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Cadena antes de validarla con expresion regular: " . $datos["cadena4"] . "<br>");
+\VALFILTER\validaExpresion($datos["cadena4"],"/^[A-Z]{4}[0-9]{4}$/","ABCD1234");
+echo("Cadena después de validarla con expresion regular: " . $datos["cadena4"] . "<br>");
 
 }

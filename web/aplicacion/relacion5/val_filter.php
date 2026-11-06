@@ -205,3 +205,20 @@ function validaCadena(string &$var, int $longitud, string $defecto):bool{
     $var=filter_var($var,FILTER_SANITIZE_STRING);
     return true;
 }
+
+/************************************************************************************* */
+
+// function validaExpresion(string &$var, string $expresion, string $defecto):bool Esta función
+// comprueba que $var cumple con la expresión regular $expresion. En caso de no cumplir las
+// condiciones se asigna a $var el valor por $defecto. La función devuelve true si es correcto y
+// false en caso contrario
+
+function validaExpresion(string &$var, string $expresion, string $defecto):bool{
+   
+
+    if((filter_var($var,FILTER_VALIDATE_REGEXP,["options"=>["regexp"=>$expresion]]))!==false){
+        return true;
+    }
+    $var=$defecto;
+    return false;
+}

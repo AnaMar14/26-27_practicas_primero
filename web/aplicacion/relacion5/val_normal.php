@@ -190,3 +190,18 @@ function validaCadena(string &$var, int $longitud, string $defecto):bool{
     }
     return true;
 }
+
+/************************************************************************************* */
+
+// function validaExpresion(string &$var, string $expresion, string $defecto):bool Esta función
+// comprueba que $var cumple con la expresión regular $expresion. En caso de no cumplir las
+// condiciones se asigna a $var el valor por $defecto. La función devuelve true si es correcto y
+// false en caso contrario
+
+function validaExpresion(string &$var, string $expresion, string $defecto):bool{
+    if(preg_match($expresion,$var)){
+        return true;
+    }
+    $var=$defecto;
+    return false;
+}
