@@ -1,13 +1,4 @@
 <?php
-
-// Se comprueban argumentos. En caso de error se devuelve false. En la aplicación
-// principal se comprueba si la llamada a una función es correcta o errónea.
-// - Se documentan las funciones indicando parámetros y operación: usar /**. Además se
-// indican comentarios en todo lo que se deba aclarar de su funcionamiento.
-// - En todas las funciones se le indicará el tipo de los parámetros/valor de retorno.
-// - Cuando la función pueda devolver error, se hará la llamada comprobando si se ha producido o no
-// el error.
-
 namespace VALFILTER;
 
 
