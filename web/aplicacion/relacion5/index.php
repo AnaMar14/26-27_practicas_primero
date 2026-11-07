@@ -31,6 +31,17 @@ $cadena2="Descampado";
 
 $cadena3="YCWB1234";
 $cadena4="Ycm5943";
+
+$array1 = [
+    "nombre" => "Lucía",
+    "edad"   => 22,
+    "ciudad" => "Sevilla"
+];
+$array2 = [
+    "ES" => "España",
+    "FR" => "Francia",
+    "IT" => "Italia"
+];
 $datos=[
   "num1"=>$num1,
   "num2"=>$num2,
@@ -48,7 +59,9 @@ $datos=[
   "cadena1"=>$cadena1,
   "cadena2"=>$cadena2,
   "cadena3"=>$cadena3,
-  "cadena4"=>$cadena4
+  "cadena4"=>$cadena4,
+  "array1"=>$array1,
+  "array2"=>$array2
 
 ];
 $barra=[
@@ -169,4 +182,17 @@ echo("Cadena antes de validarla con expresion regular: " . $datos["cadena4"] . "
 \VALFILTER\validaExpresion($datos["cadena4"],"/^[A-Z]{4}[0-9]{4}$/","ABCD1234");
 echo("Cadena después de validarla con expresion regular: " . $datos["cadena4"] . "<br>");
 
+echo("<h3>Funcion Valida Rango:<br></h3>");
+echo("Funcion en val_normal:<br>");
+echo("Búsqueda de 'Lucía' en los valores del array1:<br>");
+echo \VALNORMAL\validaRango("Lucía", $datos["array1"], 1) ? "true<br>" : "false<br>";
+echo("Búsqueda de 'Ciudad' en las claves del array1:<br>");
+echo \VALNORMAL\validaRango("ciudad",$datos["array1"],2)?"true<br>":"false<br>";
+echo("<br>");
+echo("<br>");
+echo("Funcion en val_filter:<br>");
+echo("Búsqueda de 'España' en los elementos del array2:<br>");
+echo \VALFILTER\validaRango("España", $datos["array2"], 1) ? "true<br>" : "false<br>";
+echo("Búsqueda de 'PT' en las claves del array2:<br>");
+echo \VALFILTER\validaRango("PT",$datos["array2"],2)?"true<br>":"false<br>";
 }

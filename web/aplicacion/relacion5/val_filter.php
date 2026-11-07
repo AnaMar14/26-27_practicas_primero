@@ -169,10 +169,10 @@ function validaHora(string &$var,string $defecto):bool{
  */
 
 function validaEmail(string &$var, string $defecto):bool{
-    $patron="/^[^@]+@[[:lower:]]+\.([[:lower:]][.]?)+$/";
+    $patron="/^[^@]+@[[:lower:]]+\.([[:lower:]][.]?)+$/";//expresion regular que compruebe la estructura basica de un correo
 
      if(preg_match($patron,$var)){
-        if(filter_var($var, FILTER_VALIDATE_EMAIL)===false){
+        if(filter_var($var, FILTER_VALIDATE_EMAIL)===false){//validamos que el correo sea correcto y si no lo es, lo saneamos
          $var=filter_var($var,FILTER_SANITIZE_EMAIL);
         }
 
@@ -228,4 +228,37 @@ function validaExpresion(string &$var, string $expresion, string $defecto):bool{
     }
     $var=$defecto;
     return false;
+}
+/************************************************************************************* */
+
+/**
+ * Función que comprueba que un elemento introducido de valor mixed(cualquier tipo) 
+ * se encuentre en los valores o en las claves de un array asociativo pasado como parametro.
+ * 
+ * @param mixed $var Elemento a buscar dentro del array
+ * @param array $posibles Array en el que buscaremos el elemento
+ * @param int $tipo Numero que indica si buscaremos el elemento en los valores del array o en los claves
+ * (1-> buscar en los valores, 2->buscar en las claves)
+ * @return bool Devuelve true si el elemento es encontrado en el array y false si no se encuentra.
+ */
+
+
+function validaRango(mixed $var, array $posibles, int $tipo=1):bool{
+    switch($tipo){
+        case 1:
+            $encontrado=array_search($var,$posibles);
+            if($encontrado===false){
+                return false;
+            }
+            return true;
+        case 2:
+            $claves=array_keys($posibles);
+            $encontrado=array_search($var,$claves);
+            if($encontrado===false){
+                return false;
+            }
+            return true;
+        default:
+            return false;
+    }
 }
