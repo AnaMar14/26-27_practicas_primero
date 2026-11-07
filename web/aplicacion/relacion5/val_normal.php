@@ -193,10 +193,18 @@ function validaCadena(string &$var, int $longitud, string $defecto):bool{
 
 /************************************************************************************* */
 
-// function validaExpresion(string &$var, string $expresion, string $defecto):bool Esta función
-// comprueba que $var cumple con la expresión regular $expresion. En caso de no cumplir las
-// condiciones se asigna a $var el valor por $defecto. La función devuelve true si es correcto y
-// false en caso contrario
+/**
+ * Función que comprueba que una cadena introducida cumpla una expresión regular indicada.
+ * En caso de no cumplirla, a la cadena inicial se le asigna una por defecto.
+ * 
+ * @param string $var Cadena a comprobar
+ * @param string $expresion Expresión regular con la que comprobaremos la validez de la cadena
+ * @param string $defecto Cadena que asignamos a la cadena inicial en caso de que
+ * no sea válida
+ * @return bool Devuelve true si la cadena cumple con la expresion regular y false si
+ * no la cumple.
+ */
+
 
 function validaExpresion(string &$var, string $expresion, string $defecto):bool{
     if(preg_match($expresion,$var)){
