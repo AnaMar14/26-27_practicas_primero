@@ -89,6 +89,7 @@ function cabecera() {}
 function cuerpo($datos)
 {
 ?>
+   
 <?php
 echo("<h3>Funcion Valida Entero:<br></h3>");
 echo("Funcion en val_normal con el valor 11:<br>");
@@ -195,4 +196,8 @@ echo("Búsqueda de 'España' en los elementos del array2:<br>");
 echo \VALFILTER\validaRango("España", $datos["array2"], 1) ? "true<br>" : "false<br>";
 echo("Búsqueda de 'PT' en las claves del array2:<br>");
 echo \VALFILTER\validaRango("PT",$datos["array2"],2)?"true<br>":"false<br>";
+
+echo("<h3>Ejercicio 2</h3>");
+
+echo("<a href='ejercicio2.php'>Ejercicio 2</a><br><br>");
 }
