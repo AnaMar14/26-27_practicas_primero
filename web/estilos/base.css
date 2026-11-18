@@ -30,7 +30,7 @@ a:visited{
 #documento{
     margin: 0 auto;
     background-color: #eedaee;
-    width: 700px;
+    width: 800px;
     box-shadow: 10px 14px 60px #2b0327;
    
 }
@@ -50,16 +50,22 @@ a:visited{
     font-style: italic;
 }
 #barraMenu{
+    
     border: 2px, #b876ae dotted;
 }
 
 #barraMenu ul{
+ 
     list-style-type: none;
+    text-align: center;
+    white-space: nowrap;
     margin: 0;
     padding: 20px;
     display: flex;
-    gap: 20px;
+    gap:20px;
 }
+
+
 
 #barraMenu a:hover{
     text-decoration: none;
