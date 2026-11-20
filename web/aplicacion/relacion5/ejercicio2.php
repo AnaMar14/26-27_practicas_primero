@@ -84,6 +84,8 @@ function cuerpo(array $datos, array $errores, bool $enviado, array $estudiosVal,
     } else {
         formulario($datos, $errores, $estudiosVal, $estadosVal);
     }
+
+    
 }
 
 /**

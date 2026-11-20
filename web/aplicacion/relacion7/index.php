@@ -22,18 +22,14 @@ if(isset($_POST["btnGuardar"])){
     $xValido=validaEntero($datos["x"],0,500,$datos["x"]);
     if($xValido===false){
         
-        $errores["x"]= "La coordenada X debe de ser un número entre 0 y 100";
+        $errores["x"]= "La coordenada X debe de ser un número entre 0 y 500";
         
     }
-    $validarY=validaEntero($datos["y"],0,500,-1);
-    if($validarY===-1){
-        $errores["y"]= "La coordenada Y debe de ser un número entre 0 y 100";
+    $yValido=validaEntero($datos["y"],0,500,$datos["y"]);
+    if($yValido===false){
+        $errores["y"]= "La coordenada Y debe de ser un número entre 0 y 500";
     }
 
-    //validamos que se haya seleccionado un color
-    if(empty($datos["color"])){
-        $errores["color"]= "Debes de seleccionar un color.";
-    }
 
     //validamos que se haya seleccionado un grosor
     if(empty($datos["grosor"])){
@@ -74,23 +70,26 @@ function cuerpo($datos,$errores)
     <input type="number" name="x" id="x" placeholder="Coordenada X" value="<?= htmlspecialchars($datos['x']) ?>">
     <span><?= $errores["x"] ?? "" ?></span>
     <br>
-    <input type="number" name="y" id="y" placeholder="Coordenada Y">
+    <input type="number" name="y" id="y" placeholder="Coordenada Y" value="<?= htmlspecialchars($datos['y']) ?>">
+    <span><?= $errores["y"] ?? "" ?></span>
     <br>
     <br>
+    <label for="color">Elige un color:</label>
     <select name="color" id="color">
-        <option value="rosa">Rosa</option>
-        <option value="morado">Morado</option>
-        <option value="azul">Azul</option>
-        <option value="naranja">Naranja</option>
+        <option value="rosa" <?= $datos["color"]==="rosa"? "selected":"" ?>>Rosa</option>
+        <option value="morado" <?= $datos["color"]==="morado"? "selected":"" ?>>Morado</option>
+        <option value="azul" <?= $datos["color"]==="azul"? "selected":"" ?>>Azul</option>
+        <option value="naranja" <?= $datos["color"]==="naranja"? "selected":"" ?>>Naranja</option>
     </select>
     <br>
     <br>
     <label for="fino">Fino:</label>
-    <input type="radio" value="fino" name="grosor">
+    <input type="radio" value="fino" name="grosor" <?= $datos["grosor"]==="fino"? "checked":"" ?>>
     <label for="medio">Medio:</label>
-    <input type="radio" value="medio" name="grosor">
+    <input type="radio" value="medio" name="grosor" <?= $datos["grosor"]==="medio"? "checked":"" ?>>
     <label for="gordo">Gordo:</label>
-    <input type="radio" value="gordo" name="grosor">
+    <input type="radio" value="gordo" name="grosor" <?= $datos["grosor"]==="gordo"? "checked":"" ?>>
+    <span><?= $errores["grosor"] ?? "" ?></span>
     <br>
     <br>
     <input type="submit" value="Guardar" name="btnGuardar">
